@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: regular;
+    src: url(./assets/fonts/regular.woff2);
+}
+@font-face {
+    font-family: bold;
+    src: url(./assets/fonts/bold.woff2);
+}
+@font-face {
+    font-family: semibold;
+    src: url(./assets/fonts/semibold.woff2);
+}
+@font-face {
+    font-family: free;
+    src: url(./assets/fonts/Feelfree.ttf);
+}
