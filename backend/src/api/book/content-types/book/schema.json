@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "books",
+  "info": {
+    "singularName": "book",
+    "pluralName": "books",
+    "displayName": "Book",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "bookName": {
+      "type": "string"
+    },
+    "authName": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "publishdDate": {
+      "type": "datetime"
+    }
+  }
+}

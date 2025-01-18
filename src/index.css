@@ -18,3 +18,21 @@
     font-family: free;
     src: url(./assets/fonts/Feelfree.ttf);
 }
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: #202938; /* Background of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #d1d5db; /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Rounded corners for the scrollbar thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a1a1a1; /* Color of the scrollbar thumb on hover */
+}

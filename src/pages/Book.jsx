@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const Book = () => {
-  return (
-    <section className='w-full h-screen bg-black'></section>
-  )
-}
+  return <section className="w-full h-screen bg-black"></section>;
+};
 
-export default Book
+export default Book;
