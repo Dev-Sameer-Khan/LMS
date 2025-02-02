@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../assets/images/logo.png";
 
 const Navbar = () => {
+  const [item, setItem] = useState(null);
+
+  useEffect(() => {
+    setItem(localStorage.getItem("userId"));
+  }, []);
+
   return (
     <nav className="w-full fixed top-0 left-0 px-12 py-2 z-[99] bg-[#1E293B] text-gray-300 flex items-center justify-between font-[semibold] text-[1.1vw]">
       <NavLink to="/" className="logo w-[4%]">
@@ -42,14 +48,24 @@ const Navbar = () => {
         </NavLink>
       </div>
 
-      <div className="btns flex items-center justify-between gap-3">
-        <NavLink to="/login" className="py-2 px-4 bg-orange-600 text-gray-100 rounded-md">
-          Login
-        </NavLink>
-        <NavLink to="/register" className="py-2 px-4 bg-orange-600 text-gray-100 rounded-md">
-          Register
-        </NavLink>
-      </div>
+      {item === null ? (
+        <div className="btns flex items-center justify-between gap-3">
+          <NavLink
+            to="/login"
+            className="py-2 px-4 bg-orange-600 text-gray-100 rounded-md"
+          >
+            Login
+          </NavLink>
+          <NavLink
+            to="/register"
+            className="py-2 px-4 bg-orange-600 text-gray-100 rounded-md"
+          >
+            Register
+          </NavLink>
+        </div>
+      ) : (
+        <></>
+      )}
     </nav>
   );
 };

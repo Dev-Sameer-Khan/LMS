@@ -1,69 +1,54 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useGetcategoriesQuery } from "../../Redux/Categories";
 
 const NewArrival = () => {
+  const { data = [] } = useGetcategoriesQuery();
+
+  // Check if data is available and has the expected structure
+  const newArrivals =
+    data.find((category) => category.title === "New Arrivals")?.books || [];
+
   return (
     <section className="w-full py-10 px-12">
       <div className="text font-[semibold] text-[1.7vw] mb-12">
         <h1>New Arrival</h1>
       </div>
       <div className="cards w-full flex items-center justify-center gap-16 flex-wrap flex-auto">
-        <div className="card-1 w-[20%] bg-white shadow-lg rounded-lg overflow-hidden hover:scale-95 transition-all">
-          <Link to="/book">
-            <img
-              src="https://imgv2-2-f.scribdassets.com/img/document/670205255/original/2e0df049e2/1?v=1"
-              alt="The Great Gatsby"
-              className="w-full h-full object-cover pointer-events-none"
-            />
-            <div className="p-4 ">
-              <h2 className="text-xl font-[semibold]">Bible Of JavaScript</h2>
-              <p className="text-gray-600">Harsh Vandana Sharma</p>
-              <p className="text-gray-500">Programming</p>
+        {newArrivals.length > 0 ? (
+          newArrivals.map((book, index) => (
+            <div
+              key={index}
+              className="card-1 w-[20%] bg-white shadow-lg rounded-lg overflow-hidden hover:scale-95 transition-all"
+            >
+              <Link to="/book">
+                <div className="w-[20vw] h-[25vw] overflow-hidden">
+                  <img
+                    src={book.thumbnail}
+                    alt={book.title || "Book Cover"} // Use a dynamic alt text
+                    className="w-full h-full object-cover pointer-events-none"
+                  />
+                </div>
+              </Link>
+              <div className="p-4 w-full h-[8vw]">
+                <h2 className="text-[1.3vw] font-[semibold]">
+                  {book.title || "Untitled"}
+                </h2>{" "}
+                {/* Use dynamic title */}
+                <p className="text-gray-600 text-[1vw] font-[regular]">
+                  {book.author || "Unknown Author"}
+                </p>{" "}
+                {/* Use dynamic author */}
+                <p className="text-gray-500 text-[1vw] font-[regular]">
+                  {book.genre || "Genre"}
+                </p>{" "}
+                {/* Use dynamic genre */}
+              </div>
             </div>
-          </Link>
-        </div>
-        <div className="card-2 w-[20%] bg-white shadow-lg rounded-lg overflow-hidden hover:scale-95 transition-all">
-          <Link to="/book">
-            <img
-              src="https://imgv2-2-f.scribdassets.com/img/document/670205255/original/2e0df049e2/1?v=1"
-              alt="The Great Gatsby"
-              className="w-full h-full object-cover pointer-events-none"
-            />
-            <div className="p-4">
-              <h2 className="text-xl font-[semibold]">Bible Of JavaScript</h2>
-              <p className="text-gray-600">Harsh Vandana Sharma</p>
-              <p className="text-gray-500">Programming</p>
-            </div>
-          </Link>
-        </div>
-        <div className="card-3 w-[20%] bg-white shadow-lg rounded-lg overflow-hidden hover:scale-95 transition-all">
-          <Link to="/book">
-            <img
-              src="https://imgv2-2-f.scribdassets.com/img/document/670205255/original/2e0df049e2/1?v=1"
-              alt="The Great Gatsby"
-              className="w-full h-full object-cover pointer-events-none"
-            />
-            <div className="p-4">
-              <h2 className="text-xl font-[semibold]">Bible Of JavaScript</h2>
-              <p className="text-gray-600">Harsh Vandana Sharma</p>
-              <p className="text-gray-500">Programming</p>
-            </div>
-          </Link>
-        </div>
-        <div className="card-4 w-[20%] bg-white shadow-lg rounded-lg overflow-hidden hover:scale-95 transition-all">
-          <Link to="/book">
-            <img
-              src="https://imgv2-2-f.scribdassets.com/img/document/670205255/original/2e0df049e2/1?v=1"
-              alt="The Great Gatsby"
-              className="w-full h-full object-cover pointer-events-none"
-            />
-            <div className="p-4">
-              <h2 className="text-xl font-[semibold]">Bible Of JavaScript</h2>
-              <p className="text-gray-600">Harsh Vandana Sharma</p>
-              <p className="text-gray-500">Programming</p>
-            </div>
-          </Link>
-        </div>
+          ))
+        ) : (
+          <p>No new arrivals available.</p>
+        )}
       </div>
     </section>
   );

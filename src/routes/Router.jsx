@@ -8,6 +8,14 @@ import Contact from "../pages/Contact";
 import Book from "../pages/Book";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import User from "../pages/User";
+import Dashboard from "../components/usercomponents/Dashboard";
+import UserBook from "../components/usercomponents/UserBook";
+import Admin from "../pages/Admin";
+import AdminDashboard from "../components/admincomponents/AdminDashboard";
+import AdminBook from "../components/admincomponents/AdminBook";
+import AdminHome from "../components/admincomponents/AdminHome";
+import UserHome from "../components/usercomponents/UserHome";
 
 const Router = createBrowserRouter([
   {
@@ -40,6 +48,52 @@ const Router = createBrowserRouter([
         element: <Register />,
       },
     ],
+  },
+  {
+    path: "/user",
+    element: <User />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/user",
+        element: <UserHome />,
+      },
+      {
+        path: "/user/dashboard",
+        element: <Dashboard />,
+      },
+      {
+        path: "/user/book",
+        element: <UserBook />,
+      },
+      {
+        path: "/user/profile",
+        element: <UserBook />,
+      },
+    ],
+  },
+  {
+    path: "/admin",
+    element: <Admin />,
+    errorElement: <ErrorPage />,
+     children: [
+      {
+        path: "/admin",
+        element: <AdminHome />,
+      },
+       {
+         path: "/admin/dashboard",
+         element: <AdminDashboard />,
+       },
+     {
+       path: "/admin/book",
+        element: <AdminBook />,
+      },
+     //{
+    //     path: "/admin/user",
+    //     element: <UserBook />,
+    //   },
+     ],
   },
 ]);
 

@@ -1,25 +1,18 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import { Helmet } from "react-helmet-async";
-import { useGetBooksQuery } from "../Redux/Books";
-import { useUpdateUserBookMutation } from "../Redux/User";
+import { Link } from "react-router-dom";
+import { useGetBooksQuery } from "../../Redux/Books";
+import { useGetUserByIdQuery } from "../../Redux/User";
 
-const Book = () => {
+const UserBook = () => {
+  const userid = localStorage.getItem("userId");
 
-  const id = localStorage.getItem("userId");
   const { data: bookdata = [] } = useGetBooksQuery();
-  const [updateUserBook] = useUpdateUserBookMutation();
+  const { data } = useGetUserByIdQuery(userid);
 
-  const getid = (bookId) => {
-    const isConfirmed = window.confirm("Are you sure you want to purchase this book?");
-    if (isConfirmed) {
-      const book = {
-        book: [bookId]
-      };
-      updateUserBook({ id, data: book });
-    }
-  };
-
+ let userbook = bookdata.filter((val)=>{
+  return data?.book == val.id
+ })
   return (
     <section className="w-full pt-20 py-16 px-12">
       <Helmet>
@@ -45,7 +38,7 @@ const Book = () => {
         </p>
       </div>
       <div className="cards w-full flex items-center justify-center gap-16 flex-wrap flex-grow">
-        {bookdata.map((value, index) => (
+        {userbook.map((value, index) => (
           <div
             key={index}
             className="card-1 w-[20%] bg-white shadow-lg rounded-lg overflow-hidden hover:scale-95 transition-all"
@@ -74,7 +67,7 @@ const Book = () => {
               {/* Use dynamic genre */}
             </div>
             <button
-              className={`m-4 py-2 px-4 ${value.total_copies === 0 ? 'bg-red-700' : 'bg-emerald-700'} text-gray-100 rounded-md`}
+              className="m-4 py-2 px-4 bg-orange-600 text-gray-100 rounded-md"
               onClick={() => getid(value.id)}
             >
               Purchase
@@ -83,7 +76,7 @@ const Book = () => {
         ))}
       </div>
     </section>
-  );
+  )
 };
 
-export default Book;
+export default UserBook;

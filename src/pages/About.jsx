@@ -6,6 +6,7 @@ const About = () => {
   return (
     <section className="w-full px-12 pt-20 pb-10 flex items-center justify-center flex-col gap-10">
       <Helmet>
+        <title>About Us - LMS</title>
         <meta name="title" content="About Us - LMS" />
         <meta
           name="description"

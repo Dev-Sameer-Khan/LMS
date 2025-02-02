@@ -1,0 +1,428 @@
+{
+  "cateogries": [
+    {
+      "title": "Top Picks for This Month",
+      "books": [
+        {
+          "id": 1,
+          "title": "The Great Gatsby",
+          "author": "F. Scott Fitzgerald",
+          "thumbnail": "https://m.media-amazon.com/images/M/MV5BMTkxNTk1ODcxNl5BMl5BanBnXkFtZTcwMDI1OTMzOQ@@._V1_FMjpg_UX1000_.jpg",
+          "category": "Fiction"
+        },
+        {
+          "id": 2,
+          "title": "Atomic Habits",
+          "author": "James Clear",
+          "thumbnail": "https://m.media-amazon.com/images/I/81F90H7hnML._AC_UF1000,1000_QL80_.jpg",
+          "category": "Self-Help"
+        },
+        {
+          "id": 3,
+          "title": "Sapiens: A Brief History of Humankind",
+          "author": "Yuval Noah Harari",
+          "thumbnail": "https://m.media-amazon.com/images/I/713jIoMO3UL.jpg",
+          "category": "History"
+        },
+        {
+          "id": 4,
+          "title": "Phanstoma",
+          "author": "James Clear",
+          "thumbnail": "https://static.bookofthemonth.com/cdn-cgi/image/format=auto,width=3840/https://static.bookofthemonth.com/covers/list/Phantasma_200x300.jpg",
+          "category": "Self-Help"
+        }
+      ],
+      "id": "0387"
+    },
+    {
+      "title": "New Arrivals",
+      "books": [
+        {
+          "id": 1,
+          "title": "The Midnight Library",
+          "author": "Matt Haig",
+          "thumbnail": "https://m.media-amazon.com/images/I/81J6APjwxlL.jpg",
+          "category": "Fiction"
+        },
+        {
+          "id": 2,
+          "title": "Educated",
+          "author": "Tara Westover",
+          "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHtcDGz9fxMSYGUNwjVLHO-Exubg1otgYwKw&s",
+          "category": "Biography"
+        },
+        {
+          "id": 3,
+          "title": "Project Hail Mary",
+          "author": "Andy Weir",
+          "thumbnail": "https://m.media-amazon.com/images/I/81zD9kaVW9L.jpg",
+          "category": "Science Fiction"
+        },
+        {
+          "id": 4,
+          "title": "Gone with the Wind",
+          "author": "Andy Weir",
+          "thumbnail": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1635768733i/34689759._UX160_.jpg",
+          "category": "Science Fiction"
+        }
+      ],
+      "id": "61d0"
+    },
+    {
+      "title": "Popular Authors",
+      "books": [
+        {
+          "id": 1,
+          "title": "Becoming",
+          "author": "Michelle Obama",
+          "thumbnail": "https://m.media-amazon.com/images/I/81KGjsBXQ7L._AC_UF1000,1000_QL80_.jpg",
+          "category": "Biography"
+        },
+        {
+          "id": 2,
+          "title": "The Alchemist",
+          "author": "Paulo Coelho",
+          "thumbnail": "https://m.media-amazon.com/images/I/61HAE8zahLL._AC_UF1000,1000_QL80_.jpg",
+          "category": "Fiction"
+        },
+        {
+          "id": 3,
+          "title": "The Subtle Art of Not Giving a F*ck",
+          "author": "Mark Manson",
+          "thumbnail": "https://m.media-amazon.com/images/I/71QKQ9mwV7L._AC_UF1000,1000_QL80_.jpg",
+          "category": "Self-Help"
+        },
+        {
+          "id": 4,
+          "title": "In the Heart of the Sea",
+          "author": "Mark Manson",
+          "thumbnail": "https://images3.penguinrandomhouse.com/cover/9780141001821",
+          "category": "Self-Help"
+        }
+      ],
+      "id": "a88f"
+    },
+    {
+      "title": "Bestsellers",
+      "books": [
+        {
+          "id": 1,
+          "title": "Where the Crawdads Sing",
+          "author": "Delia Owens",
+          "thumbnail": "https://whsmith.com.au/wp-content/uploads/2022/07/Where-the-Crawdads-Sing-FTI.jpg",
+          "category": "Mystery"
+        },
+        {
+          "id": 2,
+          "title": "Circe",
+          "author": "Madeline Miller",
+          "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Circe_Offering_the_Cup_to_Odysseus.jpg/640px-Circe_Offering_the_Cup_to_Odysseus.jpg",
+          "category": "Fantasy"
+        },
+        {
+          "id": 3,
+          "title": "The Silent Patient",
+          "author": "Alex Michaelides",
+          "thumbnail": "https://m.media-amazon.com/images/I/81JJPDNlxSL.jpg",
+          "category": "Thriller"
+        },
+        {
+          "id": 4,
+          "title": "Harry Potter and the Order of the Phonix",
+          "author": "J.K Rowling",
+          "thumbnail": "https://wp.scoopwhoop.com/wp-content/uploads/2016/10/57ee5c3a7c9988201038142a_418243985.jpg",
+          "category": "Thriller"
+        }
+      ],
+      "id": "51c6"
+    },
+    {
+      "title": "Technology",
+      "books": [
+        {
+          "id": 1,
+          "title": "Clean Code: A Handbook of Agile Software Craftsmanship",
+          "author": "Robert C. Martin",
+          "thumbnail": "https://m.media-amazon.com/images/I/51E2055ZGUL.jpg",
+          "category": "Programming"
+        },
+        {
+          "id": 2,
+          "title": "The Pragmatic Programmer",
+          "author": "Andrew Hunt, David Thomas",
+          "thumbnail": "https://m.media-amazon.com/images/I/71VStSjZmpL._AC_UF1000,1000_QL80_.jpg",
+          "category": "Programming"
+        },
+        {
+          "id": 3,
+          "title": "Design Patterns: Elements of Reusable Object-Oriented Software",
+          "author": "Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides",
+          "thumbnail": "https://m.media-amazon.com/images/I/81-k55ERXxL._AC_UF1000,1000_QL80_.jpg",
+          "category": "Software Engineering"
+        },
+        {
+          "id": 4,
+          "title": "The Left Hand if Darkness",
+          "author": "Ursulak",
+          "thumbnail": "https://orion-uploads.openroadmedia.com/md_806563212117-the-bestselling-sci-fi-books-of-all-time_the-left-hand-of-darkness.jpg?w=640",
+          "category": "Software Engineering"
+        }
+      ],
+      "id": "e273"
+    }
+  ],
+  "users": [
+    {
+      "id": "7dd3",
+      "username": "param",
+      "email": "parmjeetdell1@gmail.com",
+      "password": "12345",
+      "isAdmin": false,
+      "books": [
+        4,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "3b8d",
+      "username": "sammer",
+      "email": "sammer@gmail.com",
+      "password": "12345",
+      "isAdmin": false,
+      "books": []
+    },
+    {
+      "id": "d360",
+      "username": "narayan ",
+      "email": "narayna@gmail.com",
+      "password": "12345",
+      "isAdmin": false,
+      "books": []
+    },
+    {
+      "id": "b595",
+      "username": "Dev-Sameer-Khan",
+      "email": "khansameer84233@gmail.com",
+      "password": "dasfasfd"
+    },
+    {
+      "id": "7966",
+      "username": "Dev-Sameer-Khan",
+      "email": "khansameer84233@gmail.com",
+      "password": "dasfasfd",
+      "isAdmin": false,
+      "book": [
+        "b6"
+      ]
+    },
+    {
+      "id": "8c39",
+      "username": "Dev Abhisekh Gupta",
+      "email": "guptaabhisekh84233@gmail.com",
+      "password": "Abisekh@2004",
+      "isAdmin": false,
+      "book": []
+    }
+  ],
+  "books": [
+    {
+      "id": "b5",
+      "title": "A Brief History of Time",
+      "author": "Stephen Hawking",
+      "publisher": "Bantam Books",
+      "publication_year": 1988,
+      "genre": "Science",
+      "language": "English",
+      "pages": 256,
+      "isbn": "978-0553380163",
+      "description": "Stephen Hawking explores the mysteries of the universe, explaining complex concepts like black holes, time travel, and the Big Bang in a way accessible to readers.",
+      "available_copies": 4,
+      "total_copies": 6,
+      "book_cover_url": "https://m.media-amazon.com/images/I/81pQPZAFWbL.jpg",
+      "category": "Science",
+      "location": "Shelf 5A",
+      "status": "Available"
+    },
+    {
+      "id": "b6",
+      "title": "Sapiens: A Brief History of Humankind",
+      "author": "Yuval Noah Harari",
+      "publisher": "Harper",
+      "publication_year": 2011,
+      "genre": "History",
+      "language": "English",
+      "pages": 443,
+      "isbn": "978-0062316097",
+      "description": "Harari takes readers through the history of humankind, exploring how biology, culture, and technology have shaped humanity.",
+      "available_copies": 7,
+      "total_copies": 10,
+      "book_cover_url": "https://m.media-amazon.com/images/I/713jIoMO3UL.jpg",
+      "category": "History",
+      "location": "Shelf 6B",
+      "status": "Available"
+    },
+    {
+      "id": "b7",
+      "title": "Atomic Habits",
+      "author": "James Clear",
+      "publisher": "Avery",
+      "publication_year": 2018,
+      "genre": "Self-Help",
+      "language": "English",
+      "pages": 320,
+      "isbn": "978-0735211292",
+      "description": "A guide to building good habits and breaking bad ones with actionable strategies for improving daily life.",
+      "available_copies": 9,
+      "total_copies": 12,
+      "book_cover_url": "https://m.media-amazon.com/images/I/81F90H7hnML._AC_UF1000,1000_QL80_.jpg",
+      "category": "Self-Help",
+      "location": "Shelf 7C",
+      "status": "Available"
+    },
+    {
+      "id": "b8",
+      "title": "The Hobbit",
+      "author": "J.R.R. Tolkien",
+      "publisher": "George Allen & Unwin",
+      "publication_year": 1937,
+      "genre": "Fantasy",
+      "language": "English",
+      "pages": 310,
+      "isbn": "978-0547928227",
+      "description": "The Hobbit is a classic fantasy about Bilbo Baggins, who embarks on a quest with dwarves to reclaim a treasure guarded by a dragon.",
+      "available_copies": 6,
+      "total_copies": 8,
+      "book_cover_url": "https://m.media-amazon.com/images/M/MV5BMzU0NDY0NDEzNV5BMl5BanBnXkFtZTgwOTIxNDU1MDE@._V1_FMjpg_UX1000_.jpg",
+      "category": "Fantasy",
+      "location": "Shelf 8D",
+      "status": "Available"
+    },
+    {
+      "id": "b9",
+      "title": "Clean Code",
+      "author": "Robert C. Martin",
+      "publisher": "Prentice Hall",
+      "publication_year": 2008,
+      "genre": "Technology",
+      "language": "English",
+      "pages": 464,
+      "isbn": "978-0132350884",
+      "description": "Clean Code offers insights into writing clean, readable, and maintainable code for software developers.",
+      "available_copies": 5,
+      "total_copies": 7,
+      "book_cover_url": "https://m.media-amazon.com/images/I/51E2055ZGUL.jpg",
+      "category": "Technology",
+      "location": "Shelf 9E",
+      "status": "Available"
+    },
+    {
+      "id": "b10",
+      "title": "The Power of Now",
+      "author": "Eckhart Tolle",
+      "publisher": "New World Library",
+      "publication_year": 1997,
+      "genre": "Self-Help",
+      "language": "English",
+      "pages": 236,
+      "isbn": "978-1577314806",
+      "description": "This book focuses on spiritual enlightenment, teaching readers how to live in the present moment and transcend their thoughts.",
+      "available_copies": 6,
+      "total_copies": 10,
+      "book_cover_url": "https://m.media-amazon.com/images/I/61Ij8nLooNL._AC_UF1000,1000_QL80_.jpg",
+      "category": "Self-Help",
+      "location": "Shelf 10A",
+      "status": "Available"
+    },
+    {
+      "id": "b11",
+      "title": "1984",
+      "author": "George Orwell",
+      "publisher": "Secker & Warburg",
+      "publication_year": 1949,
+      "genre": "Dystopian",
+      "language": "English",
+      "pages": 328,
+      "isbn": "978-0451524935",
+      "description": "A dystopian novel set in a totalitarian society under constant surveillance, where independent thought is a crime.",
+      "available_copies": 7,
+      "total_copies": 10,
+      "book_cover_url": "https://rukminim2.flixcart.com/image/850/1000/xif0q/book/b/k/2/george-orwell-poems-original-imaghfbkhz49up8g.jpeg?q=20&crop=false",
+      "category": "Fiction",
+      "location": "Shelf 11B",
+      "status": "Available"
+    },
+    {
+      "id": "b12",
+      "title": "The Art of War",
+      "author": "Sun Tzu",
+      "publisher": "Shambhala",
+      "publication_year": -500,
+      "genre": "Philosophy",
+      "language": "English",
+      "pages": 320,
+      "isbn": "978-1590302255",
+      "description": "An ancient Chinese military treatise offering timeless strategies for conflict and competition.",
+      "available_copies": 8,
+      "total_copies": 12,
+      "book_cover_url": "https://m.media-amazon.com/images/I/71jWgemHbML._AC_UF1000,1000_QL80_.jpg",
+      "category": "History",
+      "location": "Shelf 12C",
+      "status": "Available"
+    },
+    {
+      "id": "b13",
+      "title": "The Name of the Wind",
+      "author": "Patrick Rothfuss",
+      "publisher": "DAW Books",
+      "publication_year": 2007,
+      "genre": "Fantasy",
+      "language": "English",
+      "pages": 662,
+      "isbn": "978-0756404741",
+      "description": "The story of Kvothe, a gifted young musician and magician, as he recounts his life's journey.",
+      "available_copies": 3,
+      "total_copies": 5,
+      "book_cover_url": "https://m.media-amazon.com/images/I/611iKJa7a-L.jpg",
+      "category": "Fantasy",
+      "location": "Shelf 13D",
+      "status": "Checked Out"
+    },
+    {
+      "id": "b14",
+      "title": "Deep Learning",
+      "author": "Ian Goodfellow, Yoshua Bengio, Aaron Courville",
+      "publisher": "MIT Press",
+      "publication_year": 2016,
+      "genre": "Technology",
+      "language": "English",
+      "pages": 800,
+      "isbn": "978-0262035613",
+      "description": "An in-depth introduction to the fundamentals of deep learning, a subfield of machine learning.",
+      "available_copies": 4,
+      "total_copies": 6,
+      "book_cover_url": "https://m.media-amazon.com/images/I/61+NtYUWq4L.jpg",
+      "category": "Technology",
+      "location": "Shelf 14E",
+      "status": "Available"
+    },
+    {
+      "id": "b16",
+      "title": "Bible Of JavaScript",
+      "author": "Harsh Vandana Sharma",
+      "publisher": "Sheryian Coding Schoo;",
+      "publication_year": 2024,
+      "genre": "Technology",
+      "language": "English",
+      "pages": 100,
+      "isbn": "978-0262035645",
+      "description": "Bible of JS by Sherians Coding School is a comprehensive guide to mastering JavaScript, offering in-depth tutorials, practical examples, and expert insights for developers at all levels.",
+      "available_copies": 6,
+      "total_copies": 6,
+      "book_cover_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8bRWF23Hmm5p8fwbHOjFBzOmcSAzl3lBsOg&s",
+      "category": "Technology",
+      "location": "Shelf 16E",
+      "status": "Available"
+    }
+  ]
+}

@@ -1,15 +1,39 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Helmet } from "react-helmet-async";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  let navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    window.localStorage.setItem("userId", "7966");
+    navigate("/user/dashboard");
+  };
+
   return (
     <section className="w-full pt-32 pb-16 bg-[#F3F4F6] flex items-center justify-center">
+      <Helmet>
+        <title>Login - LMS</title>
+        <meta name="title" content="LMS - Modern Library Management System" />
+        <meta
+          name="description"
+          content="Welcome to LMS, a streamlined solution for managing your library efficiently. Explore, borrow, and manage books effortlessly."
+        />
+        <meta
+          name="keywords"
+          content="Library Management System, LMS, Online Library, Book Management"
+        />
+        <meta name="author" content="Your Name or Brand" />
+      </Helmet>
       <div className="flex flex-col items-center justify-center w-full max-w-md p-6 bg-white rounded-lg shadow-md">
         <h1 className="text-[2vw] font-[semibold] mb-2">Welcome Back!</h1>
         <p className="mb-6 w-[80%] text-gray-600 text-center font-[regular] text-[1.3vw]">
           Login to continue your reading journey.
         </p>
-        <form className="w-full" onSubmit={(e) => e.preventDefault()}>
+        <form className="w-full" onSubmit={handleSubmit}>
           <label
             className="text-gray-700 font-[semibold] text-[1.1vw]"
             htmlFor="username"
@@ -21,6 +45,8 @@ const Login = () => {
             type="text"
             placeholder="Username..."
             className="my-2 p-2 outline-0 font-[regular] text-[1.1vw] border-2 border-gray-300 rounded-lg w-full"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
 
           <label
@@ -34,6 +60,8 @@ const Login = () => {
             type="password"
             placeholder="Password..."
             className="my-2 p-2 outline-0 font-[regular] text-[1.1vw] border-2 border-gray-300 rounded-lg w-full"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <button
             type="submit"

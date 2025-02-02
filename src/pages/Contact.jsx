@@ -1,8 +1,22 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 
 const Contact = () => {
   return (
     <section className="w-full">
+      <Helmet>
+        <title>Contact Us - LMS</title>
+        <meta name="title" content="LMS - Modern Library Management System" />
+        <meta
+          name="description"
+          content="Welcome to LMS, a streamlined solution for managing your library efficiently. Explore, borrow, and manage books effortlessly."
+        />
+        <meta
+          name="keywords"
+          content="Library Management System, LMS, Online Library, Book Management"
+        />
+        <meta name="author" content="Your Name or Brand" />
+      </Helmet>
       <div className="contact w-full px-12 pt-24 pb-10 bg-[#F3F4F6] flex items-center justify-center gap-10">
         <div className="left w-1/2 flex items-start justify-between flex-col gap-8">
           <div className="heading">
