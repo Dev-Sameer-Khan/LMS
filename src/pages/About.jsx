@@ -39,13 +39,13 @@ const About = () => {
           <div className="profile-1 w-[20%] flex items-center gap-4 justify-center flex-col">
             <img
               className="w-1/2 rounded-full object-cover"
-              src="https://res.cloudinary.com/dpnc8ddpf/image/upload/v1733038306/g5lqgknnxjrk1cjos6s9.jpg"
+              src="https://avatars.githubusercontent.com/u/131584949?v=4"
               alt="Profile 1"
             />
             <div className="text text-center">
               <h2 className="font-[semibold] text-[1.5vw]">Sameer Khan</h2>
               <p className="font-[regular] text-[1.2vw] leading-none text-gray-600">
-                Frontend Developer
+                Creative Frontend Developer
               </p>
             </div>
           </div>
@@ -80,7 +80,7 @@ const About = () => {
           <div className="profile-4 w-[20%] flex items-center gap-4 justify-center flex-col">
             <img
               className="w-1/2 rounded-full object-cover"
-              src="https://media-del1-1.cdn.whatsapp.net/v/t61.24694-24/350068633_169031062594239_764021758725225523_n.jpg?ccb=11-4&oh=01_Q5AaIB4Hz5C2Y-Q4F9FE8dBxypEsJYUeRml9MCCPM10FyCzZ&oe=67984288&_nc_sid=5e03e0&_nc_cat=102"
+              src="https://avatars.githubusercontent.com/u/161440680?v=4"
               alt="Profile 1"
             />
             <div className="text text-center">

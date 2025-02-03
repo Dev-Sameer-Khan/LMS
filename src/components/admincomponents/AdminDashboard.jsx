@@ -1,6 +1,12 @@
 import React from 'react'
+import { useGetBooksQuery } from '../../Redux/Books'
+import { useGetUserQuery } from '../../Redux/User'
 
 const AdminDashboard = () => {
+
+  const {data:book} = useGetBooksQuery()
+  const {data:user} =  useGetUserQuery()
+
   return (
     <section className='w-full h-screen bg-[#111828] pl-[15%] text-white'>
       <div className="text w-full py-4 px-6 bg-[#3730A2] leading-[1.1]">
@@ -10,11 +16,11 @@ const AdminDashboard = () => {
       <div className="cards w-full flex gap-4 p-6">
         <div className="card-1 p-4 w-[25%] h-full rounded-md bg-[#202938]">
           <h1 className='font-[semibold] text-[1.2vw] text-white'>Total Users</h1>
-          <p className='font-[semibold] text-[1.7vw] text-[#595AD3]'>1000</p>
+          <p className='font-[semibold] text-[1.7vw] text-[#595AD3]'>{user?.length}</p>
         </div>
         <div className="card-2 p-4 w-[25%] h-full rounded-md bg-[#202938]">
           <h1 className='font-[semibold] text-[1.2vw] text-white'>Books</h1>
-          <p className='font-[semibold] text-[1.7vw] text-[#595AD3]'>13</p>
+          <p className='font-[semibold] text-[1.7vw] text-[#595AD3]'>{book?.length}</p>
         </div>
       </div>
     </section>

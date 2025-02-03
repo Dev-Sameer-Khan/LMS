@@ -213,7 +213,7 @@
       "password": "dasfasfd",
       "isAdmin": false,
       "book": [
-        "b6"
+        "b16"
       ]
     },
     {
@@ -368,60 +368,6 @@
       "book_cover_url": "https://m.media-amazon.com/images/I/71jWgemHbML._AC_UF1000,1000_QL80_.jpg",
       "category": "History",
       "location": "Shelf 12C",
-      "status": "Available"
-    },
-    {
-      "id": "b13",
-      "title": "The Name of the Wind",
-      "author": "Patrick Rothfuss",
-      "publisher": "DAW Books",
-      "publication_year": 2007,
-      "genre": "Fantasy",
-      "language": "English",
-      "pages": 662,
-      "isbn": "978-0756404741",
-      "description": "The story of Kvothe, a gifted young musician and magician, as he recounts his life's journey.",
-      "available_copies": 3,
-      "total_copies": 5,
-      "book_cover_url": "https://m.media-amazon.com/images/I/611iKJa7a-L.jpg",
-      "category": "Fantasy",
-      "location": "Shelf 13D",
-      "status": "Checked Out"
-    },
-    {
-      "id": "b14",
-      "title": "Deep Learning",
-      "author": "Ian Goodfellow, Yoshua Bengio, Aaron Courville",
-      "publisher": "MIT Press",
-      "publication_year": 2016,
-      "genre": "Technology",
-      "language": "English",
-      "pages": 800,
-      "isbn": "978-0262035613",
-      "description": "An in-depth introduction to the fundamentals of deep learning, a subfield of machine learning.",
-      "available_copies": 4,
-      "total_copies": 6,
-      "book_cover_url": "https://m.media-amazon.com/images/I/61+NtYUWq4L.jpg",
-      "category": "Technology",
-      "location": "Shelf 14E",
-      "status": "Available"
-    },
-    {
-      "id": "b16",
-      "title": "Bible Of JavaScript",
-      "author": "Harsh Vandana Sharma",
-      "publisher": "Sheryian Coding Schoo;",
-      "publication_year": 2024,
-      "genre": "Technology",
-      "language": "English",
-      "pages": 100,
-      "isbn": "978-0262035645",
-      "description": "Bible of JS by Sherians Coding School is a comprehensive guide to mastering JavaScript, offering in-depth tutorials, practical examples, and expert insights for developers at all levels.",
-      "available_copies": 6,
-      "total_copies": 6,
-      "book_cover_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8bRWF23Hmm5p8fwbHOjFBzOmcSAzl3lBsOg&s",
-      "category": "Technology",
-      "location": "Shelf 16E",
       "status": "Available"
     }
   ]

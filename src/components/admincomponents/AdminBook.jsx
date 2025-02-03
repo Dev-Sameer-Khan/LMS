@@ -12,67 +12,138 @@ import { useRef } from "react";
 import { Helmet } from "react-helmet-async";
 
 const AdminBook = () => {
-  const [id, setId] = useState("b16");
+  const [id, setId] = useState("");
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
-  const [publicationYear, setPublicationYear] = useState("");
+  const [publication_year, setPublicationYear] = useState("");
   const [language, setLanguage] = useState("");
   const [pages, setPages] = useState("");
   const [publisher, setPublisher] = useState("");
   const [genre, setGenre] = useState("");
   const [isbn, setIsbn] = useState("");
-  const [avCopies, setAvCopies] = useState("");
-  const [tCopies, setTCopies] = useState("");
-  const [category, setCateory] = useState("");
+  const [available_copies, setAvailable_Copies] = useState("");
+  const [total_copies, setTotal_Copies] = useState("");
+  const [category, setCategory] = useState("");
   const [location, setLocation] = useState("");
   const [status, setStatus] = useState("");
-  const [discription, setDiscription] = useState("");
-  const [bookCover, setBookCover] = useState("");
+  const [description, setDescription] = useState("");
+  const [book_cover_url, setBook_Cover_Url] = useState("");
 
-  const show = useRef(null);
+  const showadd = useRef(null);
+  const showedit = useRef(null);
 
   const { data = [] } = useGetBooksQuery();
-  const {data:book} = useGetBooksByIdQuery(id);
+  const { data: book } = useGetBooksByIdQuery(id);
   const [newBook] = useUpdateBooksMutation();
   const [updateBook] = useUpdateBookByIdMutation();
   const [deleteBook] = useDeleteBooksMutation();
-
 
   const addbook = (e) => {
     e.preventDefault();
     const answer = confirm("Are you sure you want to add this book?");
     if (answer) {
-      let book = {
-        title: title,
-        author: author,
-        publication_year: publicationYear,
-        language: language,
-        pages: pages,
-        publisher: publisher,
-        genre: genre,
-        isbn: isbn,
-        available_copies: avCopies,
-        total_copies: tCopies,
-        category: category,
-        location: location,
-        status: status,
-        description: discription,
-        book_cover: bookCover,
+      let bookData = {
+        title,
+        author,
+        publication_year,
+        language,
+        pages,
+        publisher,
+        genre,
+        isbn,
+        available_copies,
+        total_copies,
+        category,
+        location,
+        status,
+        description,
+        book_cover_url,
       };
 
-      newBook(book);
+      newBook(bookData);
       alert("Book Added");
-      show.current.style.display = "none";
+      showadd.current.style.display = "none";
     } else {
       alert("Book Not Added");
     }
   };
 
-  const handleEdit = (id) => {
-    const answer = confirm("Are you sure you want to edit Book?");
+  const handleEdit = (id, title) => {
+    const answer = confirm(`Are you sure you want to edit the book titled "${title}"?`);
     if (answer) {
-     setId(id);
+      setId(id);
+      showCard2();
+      const showData = data.find((book) => book.id === id);
+      if (showData) {
+        setTitle(showData.title);
+        setAuthor(showData.author);
+        setPublicationYear(showData.publication_year);
+        setLanguage(showData.language);
+        setPages(showData.pages);
+        setPublisher(showData.publisher);
+        setGenre(showData.genre);
+        setIsbn(showData.isbn);
+        setAvailable_Copies(showData.available_copies);
+        setTotal_Copies(showData.total_copies);
+        setCategory(showData.category);
+        setLocation(showData.location);
+        setStatus(showData.status);
+        setDescription(showData.description);
+        setBook_Cover_Url(showData.book_cover);
+      } else {
+        alert("Book not found for editing.");
       }
+    } else {
+      alert("Edit action canceled.");
+    }
+  };
+
+  const UpdateBookData = (e) => {
+    e.preventDefault();
+    let data = {
+      title,
+      author,
+      publication_year,
+      language,
+      pages,
+      publisher,
+      genre,
+      isbn,
+      available_copies,
+      total_copies,
+      category,
+      location,
+      status,
+      description,
+      book_cover_url,
+    }
+    updateBook({
+      id,
+      data
+    }).then(() => {
+      setId("");
+      setTitle("");
+      setAuthor("");
+      setPublicationYear("");
+      setLanguage("");
+      setPages("");
+      setPublisher("");
+      setGenre("");
+      setIsbn("");
+      setAvailable_Copies("");
+      setTotal_Copies("");
+      setCategory(""); // Corrected spelling from 'Cateory' to 'Category'
+      setLocation("");
+      setStatus("");
+      setDescription(""); // Corrected spelling from 'discription' to 'description'
+      setBook_Cover_Url("");
+      alert("Book Updated");
+      showedit.current.style.display = "none";
+    }).catch((error) => {
+      console.error("Error updating book:", error);
+      alert("Failed to update book. Please try again.");
+    });
+    showedit.current.style.display = "none";
   };
 
   const handleDelete = (id) => {
@@ -86,7 +157,10 @@ const AdminBook = () => {
   };
 
   const showCard = () => {
-    show.current.style.display = "block";
+    showadd.current.style.display = "block";
+  };
+  const showCard2 = () => {
+    showedit.current.style.display = "block";
   };
 
   return (
@@ -105,8 +179,8 @@ const AdminBook = () => {
         <meta name="author" content="Your Name or Brand" />
       </Helmet>
       <div
-        ref={show}
-        className="absolute h-screen w-[85%] hidden bg-black bg-opacity-50 z-50 p-20 overflow-auto"
+        ref={showadd}
+        className="absolute h-screen w-[85%] hidden bg-black bg-opacity-50 z-50 p-20 "
       >
         <div className="bg-white p-6 rounded shadow-lg w-full">
           <h2 className="text-[2vw] mb-4 text-center font-[semibold]">
@@ -143,7 +217,7 @@ const AdminBook = () => {
                 <input
                   type="text"
                   className="mt-1 block w-full border border-gray-300 rounded p-2"
-                  value={publicationYear}
+                  value={publication_year}
                   onChange={(e) => setPublicationYear(e.target.value)}
                 />
               </div>
@@ -213,8 +287,8 @@ const AdminBook = () => {
                 <input
                   type="text"
                   className="mt-1 block w-full border border-gray-300 rounded p-2"
-                  value={avCopies}
-                  onChange={(e) => setAvCopies(e.target.value)}
+                  value={available_copies}
+                  onChange={(e) => setAvailable_Copies(e.target.value)}
                 />
               </div>
             </div>
@@ -226,8 +300,8 @@ const AdminBook = () => {
                 <input
                   type="text"
                   className="mt-1 block w-full border border-gray-300 rounded p-2"
-                  value={tCopies}
-                  onChange={(e) => setTCopies(e.target.value)}
+                  value={total_copies}
+                  onChange={(e) => setTotal_Copies(e.target.value)}
                 />
               </div>
               <div className="w-1/3 px-2">
@@ -238,7 +312,7 @@ const AdminBook = () => {
                   type="text"
                   className="mt-1 block w-full border border-gray-300 rounded p-2"
                   value={category}
-                  onChange={(e) => setCateory(e.target.value)}
+                  onChange={(e) => setCategory(e.target.value)}
                 />
               </div>
               <div className="w-1/3 pl-2">
@@ -272,8 +346,8 @@ const AdminBook = () => {
                 <textarea
                   className="mt-1 block w-full border border-gray-300 rounded p-2"
                   rows="3"
-                  value={discription}
-                  onChange={(e) => setDiscription(e.target.value)}
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
                 ></textarea>
               </div>
               <div className="w-1/3 pl-2">
@@ -283,8 +357,201 @@ const AdminBook = () => {
                 <input
                   type="text"
                   className="mt-1 block w-full border border-gray-300 rounded p-2"
-                  value={bookCover}
-                  onChange={(e) => setBookCover(e.target.value)}
+                  value={book_cover_url}
+                  onChange={(e) => setBook_Cover_Url(e.target.value)}
+                />
+              </div>
+            </div>
+            <button
+              type="submit"
+              className="bg-blue-600 w-full text-white px-4 py-2 rounded"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+      <div
+        ref={showedit}
+        className="absolute h-screen w-[85%] hidden bg-black bg-opacity-50 z-50 p-20"
+      >
+        <div className="bg-white p-6 rounded shadow-lg w-full">
+          <h2 className="text-[2vw] mb-4 text-center font-[semibold]">
+            Edit Book Information
+          </h2>
+          <form onSubmit={UpdateBookData}>
+            <div className="mb-4 flex justify-between">
+              <div className="w-1/3 pr-2">
+                <label className="block text-[1.2vw] font-[regular]">
+                  Title
+                </label>
+                <input
+                  type="text"
+                  className="mt-1 block w-full border border-gray-300 rounded p-2"
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                />
+              </div>
+              <div className="w-1/3 px-2">
+                <label className="block text-[1.2vw] font-[regular]">
+                  Author
+                </label>
+                <input
+                  type="text"
+                  className="mt-1 block w-full border border-gray-300 rounded p-2"
+                  value={author}
+                  onChange={(e) => setAuthor(e.target.value)}
+                />
+              </div>
+              <div className="w-1/3 pl-2">
+                <label className="block text-[1.2vw] font-[regular]">
+                  Publication Year
+                </label>
+                <input
+                  type="text"
+                  className="mt-1 block w-full border border-gray-300 rounded p-2"
+                  value={publication_year}
+                  onChange={(e) => setPublicationYear(e.target.value)}
+                />
+              </div>
+            </div>
+            <div className="mb-4 flex justify-between">
+              <div className="w-1/3 pr-2">
+                <label className="block text-[1.2vw] font-[regular]">
+                  Language
+                </label>
+                <input
+                  type="text"
+                  className="mt-1 block w-full border border-gray-300 rounded p-2"
+                  value={language}
+                  onChange={(e) => setLanguage(e.target.value)}
+                />
+              </div>
+              <div className="w-1/3 px-2">
+                <label className="block text-[1.2vw] font-[regular]">
+                  Pages
+                </label>
+                <input
+                  type="text"
+                  className="mt-1 block w-full border border-gray-300 rounded p-2"
+                  value={pages}
+                  onChange={(e) => setPages(e.target.value)}
+                />
+              </div>
+              <div className="w-1/3 pl-2">
+                <label className="block text-[1.2vw] font-[regular]">
+                  Publisher
+                </label>
+                <input
+                  type="text"
+                  className="mt-1 block w-full border border-gray-300 rounded p-2"
+                  value={publisher}
+                  onChange={(e) => setPublisher(e.target.value)}
+                />
+              </div>
+            </div>
+            <div className="mb-4 flex justify-between">
+              <div className="w-1/3 pr-2">
+                <label className="block text-[1.2vw] font-[regular]">
+                  Genre
+                </label>
+                <input
+                  type="text"
+                  className="mt-1 block w-full border border-gray-300 rounded p-2"
+                  value={genre}
+                  onChange={(e) => setGenre(e.target.value)}
+                />
+              </div>
+              <div className="w-1/3 px-2">
+                <label className="block text-[1.2vw] font-[regular]">
+                  ISBN
+                </label>
+                <input
+                  type="text"
+                  className="mt-1 block w-full border border-gray-300 rounded p-2"
+                  value={isbn}
+                  onChange={(e) => setIsbn(e.target.value)}
+                />
+              </div>
+              <div className="w-1/3 pl-2">
+                <label className="block text-[1.2vw] font-[regular]">
+                  Available Copies
+                </label>
+                <input
+                  type="text"
+                  className="mt-1 block w-full border border-gray-300 rounded p-2"
+                  value={available_copies}
+                  onChange={(e) => setAvailable_Copies(e.target.value)}
+                />
+              </div>
+            </div>
+            <div className="mb-4 flex justify-between">
+              <div className="w-1/3 pr-2">
+                <label className="block text-[1.2vw] font-[regular]">
+                  Total Copies
+                </label>
+                <input
+                  type="text"
+                  className="mt-1 block w-full border border-gray-300 rounded p-2"
+                  value={total_copies}
+                  onChange={(e) => setTotal_Copies(e.target.value)}
+                />
+              </div>
+              <div className="w-1/3 px-2">
+                <label className="block text-[1.2vw] font-[regular]">
+                  Category
+                </label>
+                <input
+                  type="text"
+                  className="mt-1 block w-full border border-gray-300 rounded p-2"
+                  value={category}
+                  onChange={(e) => setCategory(e.target.value)}
+                />
+              </div>
+              <div className="w-1/3 pl-2">
+                <label className="block text-[1.2vw] font-[regular]">
+                  Location
+                </label>
+                <input
+                  type="text"
+                  className="mt-1 block w-full border border-gray-300 rounded p-2"
+                  value={location}
+                  onChange={(e) => setLocation(e.target.value)}
+                />
+              </div>
+            </div>
+            <div className="mb-4 flex justify-between">
+              <div className="w-1/3 pr-2">
+                <label className="block text-[1.2vw] font-[regular]">
+                  Status
+                </label>
+                <input
+                  type="text"
+                  className="mt-1 block w-full border border-gray-300 rounded p-2"
+                  value={status}
+                  onChange={(e) => setStatus(e.target.value)}
+                />
+              </div>
+              <div className="w-1/3 px-2">
+                <label className="block text-[1.2vw] font-[regular]">
+                  Description
+                </label>
+                <textarea
+                  className="mt-1 block w-full border border-gray-300 rounded p-2"
+                  rows="3"
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                ></textarea>
+              </div>
+              <div className="w-1/3 pl-2">
+                <label className="block text-[1.2vw] font-[regular]">
+                  Book Cover URL
+                </label>
+                <input
+                  type="text"
+                  className="mt-1 block w-full border border-gray-300 rounded p-2"
+                  value={book_cover_url}
+                  onChange={(e) => setBook_Cover_Url(e.target.value)}
                 />
               </div>
             </div>
@@ -328,7 +595,7 @@ const AdminBook = () => {
                 <td className="py-2">
                   <button
                     className="bg-[#5046E5] text-white px-2 py-1 rounded"
-                    onClick={()=>handleEdit(book.id)}
+                    onClick={()=>handleEdit(book.id,book.title)}
                   >
                     <CiEdit />
                   </button>
