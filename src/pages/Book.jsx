@@ -21,7 +21,7 @@ const Book = () => {
   };
 
   return (
-    <section className="w-full pt-20 py-16 px-12">
+    <section className="w-full pt-20 py-16 px-12 max-[599px]:px-6 max-[599px]:pb-5">
       <Helmet>
         <title>All Books - LMS</title>
         <meta name="title" content="LMS - Modern Library Management System" />
@@ -36,22 +36,22 @@ const Book = () => {
         <meta name="author" content="Your Name or Brand" />
       </Helmet>
       <div className="bg-blue-500 text-white p-4 mb-6 rounded-lg">
-        <h1 className="text-[2.5vw] font-[semibold]">
+        <h1 className="text-[2.5vw] max-[599px]:text-[3.5vw] font-[semibold]">
           Welcome to the Book Library
         </h1>
-        <p className="text-[1.1vw] font-[regular]">
+        <p className="text-[1.1vw] max-[599px]:text-[2.5vw] font-[regular]">
           Explore a wide range of books, use the search bar and filter options
           below to find your favorite books!
         </p>
       </div>
-      <div className="cards w-full flex items-center justify-center gap-16 flex-wrap flex-grow">
+      <div className="cards w-full flex items-center justify-center gap-16 max-[599px]:gap-8 flex-wrap flex-grow">
         {bookdata.map((value, index) => (
           <div
             key={index}
-            className="card-1 w-[20%] bg-white shadow-lg rounded-lg overflow-hidden hover:scale-95 transition-all"
+            className="card-1 w-[20%] max-[599px]:w-[45%] bg-white shadow-lg rounded-lg overflow-hidden hover:scale-95 transition-all"
           >
             <Link to="/book">
-              <div className="w-[20vw] h-[25vw] overflow-hidden">
+              <div className="w-[20vw] max-[599px]:w-[45vw] h-[25vw] max-[599px]:h-[55vw] overflow-hidden">
                 <img
                   src={value.book_cover_url}
                   alt={value.title || "Book Cover"} // Use a dynamic alt text
@@ -59,16 +59,16 @@ const Book = () => {
                 />
               </div>
             </Link>
-            <div className="p-4 w-full h-[8vw]">
-              <h2 className="text-[1.3vw] font-[semibold]">
+            <div className="p-4 w-full h-[8vw] max-[599px]:h-[20vw]">
+              <h2 className="text-[1.3vw] max-[599px]:text-[3.3vw] font-[semibold]">
                 {value.title || "Untitled"}
               </h2>{" "}
               {/* Use dynamic title */}
-              <p className="text-gray-600 text-[1vw] font-[regular]">
+              <p className="text-gray-600 text-[1vw] max-[599px]:text-[3vw] font-[regular]">
                 {value.author || "Unknown Author"}
               </p>{" "}
               {/* Use dynamic author */}
-              <p className="text-gray-500 text-[1vw] font-[regular]">
+              <p className="text-gray-500 text-[1vw] max-[599px]:text-[3vw] font-[regular]">
                 {value.genre || "Genre"}
               </p>{" "}
               {/* Use dynamic genre */}

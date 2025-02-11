@@ -26,7 +26,7 @@ const Register = () => {
   };
 
   return (
-    <section className="w-full pt-32 pb-16 bg-[#F3F4F6] flex items-center justify-center">
+    <section className="w-full pt-32 max-[599px]:h-screen max-[599px]:px-6 pb-16 bg-[#F3F4F6] flex items-center justify-center">
       <Helmet>
         <title>Register - LMS</title>
         <meta name="title" content="LMS - Modern Library Management System" />
@@ -41,13 +41,13 @@ const Register = () => {
         <meta name="author" content="Your Name or Brand" />
       </Helmet>
       <div className="flex flex-col items-center justify-center w-full max-w-md p-6 bg-white rounded-lg shadow-md">
-        <h1 className="text-[2vw] font-[semibold] mb-2">Create an Account</h1>
-        <p className="mb-6 w-[80%] text-gray-600 text-center font-[regular] text-[1.3vw]">
+        <h1 className="text-[2vw] max-[599px]:text-[6vw] font-[semibold] mb-2 max-[599px]:mb-0">Create an Account</h1>
+        <p className="mb-6 max-[599px]:mb-2 w-[80%] max-[599px]:w-full text-gray-600 text-center font-[regular] text-[1.3vw] max-[599px]:text-[3.1vw]">
           Join our community and start your reading journey today.
         </p>
         <form className="w-full" onSubmit={submitHandler}>
           <label
-            className="text-gray-700 font-[semibold] text-[1.1vw]"
+            className="text-gray-700 font-[semibold] text-[1.1vw] max-[599px]:text-[3vw]"
             htmlFor="username"
           >
             Username
@@ -56,13 +56,13 @@ const Register = () => {
             id="username"
             type="text"
             placeholder="Username..."
-            className="my-2 p-2 outline-0 font-[regular] text-[1.1vw] border-2 border-gray-300 rounded-lg w-full"
+            className="my-2 p-2 outline-0 font-[regular] text-[1.1vw] max-[599px]:text-[3vw] border-2 border-gray-300 rounded-lg w-full"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
 
           <label
-            className="text-gray-700 font-[semibold] text-[1.1vw]"
+            className="text-gray-700 font-[semibold] text-[1.1vw] max-[599px]:text-[3vw]"
             htmlFor="email"
           >
             Email
@@ -71,13 +71,13 @@ const Register = () => {
             id="email"
             type="email"
             placeholder="Email..."
-            className="my-2 p-2 outline-0 font-[regular] text-[1.1vw] border-2 border-gray-300 rounded-lg w-full"
+            className="my-2 p-2 outline-0 font-[regular] text-[1.1vw] max-[599px]:text-[3vw] border-2 border-gray-300 rounded-lg w-full"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
 
           <label
-            className="text-gray-700 font-[semibold] text-[1.1vw]"
+            className="text-gray-700 font-[semibold] text-[1.1vw] max-[599px]:text-[3vw]"
             htmlFor="password"
           >
             Password
@@ -86,18 +86,18 @@ const Register = () => {
             id="password"
             type="password"
             placeholder="Password..."
-            className="my-2 p-2 outline-0 font-[regular] text-[1.1vw] border-2 border-gray-300 rounded-lg w-full"
+            className="my-2 p-2 outline-0 font-[regular] text-[1.1vw] max-[599px]:text-[3vw] border-2 border-gray-300 rounded-lg w-full"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
           <button
             type="submit"
-            className="bg-orange-500 font-[semibold] text-[1.5vw] border-2 text-white my-2 py-2 px-4 rounded-lg w-full"
+            className="bg-orange-500 font-[semibold] text-[1.5vw] max-[599px]:text-[3vw] border-2 text-white my-2 py-2 px-4 rounded-lg w-full"
           >
             Sign Up
           </button>
         </form>
-        <p className="mt-4 text-gray-600 font-[regular] text-[1vw]">
+        <p className="mt-4 max-[599px]:mt-0 text-gray-600 font-[regular] text-[1vw] max-[599px]:text-[3vw]">
           Already have an account?{" "}
           <Link to="/login" className="text-blue-500">
             Login Now
