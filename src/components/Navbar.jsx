@@ -4,6 +4,8 @@ import logo from "../assets/images/logo.png";
 import { BiMenuAltRight } from "react-icons/bi";
 import { motion } from "framer-motion";
 import { IoCloseCircleOutline } from "react-icons/io5";
+import { TiThMenuOutline } from "react-icons/ti";
+import { IoMdCloseCircle } from "react-icons/io";
 
 const Navbar = () => {
   const [item, setItem] = useState(null);
@@ -31,9 +33,9 @@ const Navbar = () => {
         </NavLink>
 
         {isOpen ? (
-          <IoCloseCircleOutline size={35} onClick={toggleNav} className="max-[599px]:block hidden" />
+          <IoMdCloseCircle size={35} onClick={toggleNav} className="max-[599px]:block hidden" />
         ) : (
-          <BiMenuAltRight size={35} onClick={toggleNav} className="max-[599px]:block hidden" />
+          <TiThMenuOutline size={30} onClick={toggleNav} className="max-[599px]:block hidden" />
         )}
 
         <div className="links flex items-center justify-between gap-20 max-[599px]:hidden">
@@ -89,9 +91,9 @@ const Navbar = () => {
         initial={{x: nav}} 
         animate={{x: nav + "%"}} 
         transition={{ease: "linear", duration: 0.3}} 
-        className="mobile-nav w-full h-screen z-[9] bg-black fixed "
+        className="mobile-nav w-full h-screen z-[9] bg-zinc-100 text-zinc-900 fixed "
       >
-        <div className="flex flex-col items-center justify-center h-full gap-8 text-white text-xl">
+        <div className="flex flex-col items-center justify-center h-full gap-8 text-5xl font-[semibold]">
           <NavLink to="/" onClick={toggleNav}>Home</NavLink>
           <NavLink to="/about" onClick={toggleNav}>About Us</NavLink>
           <NavLink to="/book" onClick={toggleNav}>Books</NavLink>
