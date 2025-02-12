@@ -6,11 +6,10 @@ export const setUserIdToLocalStorage = (id) => {
 export const setUserStatusToLocalStorage = (status) => {
   window.localStorage.setItem("isAdmin", status);
 }
-export const getUserStatusFromLocalStorage = (status) => {
+export const getUserStatusFromLocalStorage = () => {
   const isAdmin = window.localStorage.getItem("isAdmin")
   return isAdmin
 }
-
 
 export const userApi = createApi({
   reducerPath: "userApi",
