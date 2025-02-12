@@ -107,7 +107,7 @@ const UpdateUserData = (e) => {
   };
 
   return (
-    <section className="w-full min-h-screen bg-[#111828] pl-[15%]">
+    <section className="w-full min-h-screen bg-[#111828] pl-[15%] max-[599px]:pl-0">
       <Helmet>
         <title>Handle Books - LMS</title>
         <meta name="title" content="LMS - Modern Library Management System" />
@@ -281,9 +281,9 @@ const UpdateUserData = (e) => {
         </div>
       </div>
 
-      <div className="w-full px-10 py-6">
+      <div className="w-full px-10 max-[599px]:px-6 py-6">
         <div className="flex items-center justify-between py-4">
-          <h1 className="text-white text-[2vw] font-[semibold]">All Users</h1>
+          <h1 className="text-white text-[2vw] max-[599px]:text-[5vw] font-[semibold]">All Users</h1>
           <button className="bg-[#5046E5] font-[semibold] text-white px-4 py-2 rounded" onClick={showCard}>
             Add New User
           </button>
@@ -291,20 +291,20 @@ const UpdateUserData = (e) => {
         <table className="min-w-full bg-gray-800 text-white text-center rounded-md overflow-hidden">
           <thead>
             <tr className="bg-[#3730A2] font-[semibold]">
-              <th className="py-2 text-[1.2vw]">User Id</th>
-              <th className="py-2 text-[1.2vw]">User Name</th>
-              <th className="py-2 text-[1.2vw]">User Email</th>
-              <th className="py-2 text-[1.2vw]">Is Admin</th>
-              <th className="py-2 text-[1.2vw]">Actions</th>
+              <th className="py-2 text-[1.2vw] max-[599px]:text-[3.2vw]">User Id</th>
+              <th className="py-2 text-[1.2vw] max-[599px]:text-[3.2vw]">User Name</th>
+              <th className="py-2 text-[1.2vw] max-[599px]:text-[3.2vw]">User Email</th>
+              <th className="py-2 text-[1.2vw] max-[599px]:text-[3.2vw]">Is Admin</th>
+              <th className="py-2 text-[1.2vw] max-[599px]:text-[3.2vw]">Actions</th>
             </tr>
           </thead>
           <tbody>
             {user.map((user, index) => (
               <tr key={index} className="font-[regular]">
-                <td className="py-2 text-[1vw]">{user.id}</td>
-                <td className="py-2 text-[1vw]">{user.username}</td>
-                <td className="py-2 text-[1vw]">{user.email}</td>
-                <td className="py-2 text-[1vw]">
+                <td className="py-2 text-[1vw] max-[599px]:text-[2vw]">{user.id}</td>
+                <td className="py-2 text-[1vw] max-[599px]:text-[2vw]">{user.username}</td>
+                <td className="py-2 text-[1vw] max-[599px]:text-[2vw]">{user.email}</td>
+                <td className="py-2 text-[1vw] max-[599px]:text-[2vw]">
                   {user.isAdmin ? "Yes" : "No"}
                 </td>
                 <td className="py-2">

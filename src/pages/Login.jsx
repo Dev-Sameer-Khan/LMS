@@ -15,7 +15,7 @@ const Login = () => {
     setUserStatusToLocalStorage("true");
     window.setTimeout(() => {
       const isAdmin = getUserStatusFromLocalStorage();
-      isAdmin === "true" ? navigate("/admin/dashboard") : navigate("/user/dashboard");
+      isAdmin === "true" ? navigate("/admin") : navigate("/user");
     }, 500)
   };
 

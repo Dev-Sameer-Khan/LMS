@@ -231,6 +231,14 @@
       "password": "",
       "isAdmin": "true",
       "books": []
+    },
+    {
+      "id": "244c",
+      "username": "Pata Nahi",
+      "email": "Pata@nahi.com",
+      "password": "Patanahi",
+      "isAdmin": false,
+      "book": []
     }
   ],
   "books": [

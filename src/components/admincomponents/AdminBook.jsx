@@ -164,7 +164,7 @@ const AdminBook = () => {
   };
 
   return (
-    <section className="w-full min-h-screen bg-[#111828] pl-[15%]">
+    <section className="w-full min-h-screen bg-[#111828] pl-[15%] max-[599px]:pl-0">
       <Helmet>
         <title>Handle Books - LMS</title>
         <meta name="title" content="LMS - Modern Library Management System" />
@@ -180,16 +180,16 @@ const AdminBook = () => {
       </Helmet>
       <div
         ref={showadd}
-        className="absolute h-screen w-[85%] hidden bg-black bg-opacity-50 z-50 p-20 "
+        className="absolute min-h-screen w-[85%] max-[599px]:w-full hidden bg-black bg-opacity-50 z-50 p-20 max-[599px]:px-6 max-[599px]:py-20"
       >
         <div className="bg-white p-6 rounded shadow-lg w-full">
-          <h2 className="text-[2vw] mb-4 text-center font-[semibold]">
+          <h2 className="text-[2vw] max-[599px]:text-[5vw] mb-4 text-center font-[semibold]">
             Add Book Information
           </h2>
           <form onSubmit={addbook}>
-            <div className="mb-4 flex justify-between">
-              <div className="w-1/3 pr-2">
-                <label className="block text-[1.2vw] font-[regular]">
+            <div className="mb-4 flex flex-wrap justify-between">
+              <div className="w-1/3 pr-2 max-[599px]:pr-0 max-[599px]:w-full">
+                <label className="block text-[1.2vw] max-[599px]:text-[3.2vw] font-[regular]">
                   Title
                 </label>
                 <input
@@ -197,10 +197,11 @@ const AdminBook = () => {
                   className="mt-1 block w-full border border-gray-300 rounded p-2"
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
+                  placeholder="Enter book title"
                 />
               </div>
-              <div className="w-1/3 px-2">
-                <label className="block text-[1.2vw] font-[regular]">
+              <div className="w-1/3 px-2 max-[599px]:px-0 max-[599px]:w-full">
+                <label className="block text-[1.2vw] max-[599px]:text-[3.2vw] font-[regular]">
                   Author
                 </label>
                 <input
@@ -208,10 +209,11 @@ const AdminBook = () => {
                   className="mt-1 block w-full border border-gray-300 rounded p-2"
                   value={author}
                   onChange={(e) => setAuthor(e.target.value)}
+                  placeholder="Enter author's name"
                 />
               </div>
-              <div className="w-1/3 pl-2">
-                <label className="block text-[1.2vw] font-[regular]">
+              <div className="w-1/3 pl-2 max-[599px]:pl-0 max-[599px]:w-full">
+                <label className="block text-[1.2vw] max-[599px]:text-[3.2vw] font-[regular]">
                   Publication Year
                 </label>
                 <input
@@ -219,12 +221,13 @@ const AdminBook = () => {
                   className="mt-1 block w-full border border-gray-300 rounded p-2"
                   value={publication_year}
                   onChange={(e) => setPublicationYear(e.target.value)}
+                  placeholder="Enter publication year"
                 />
               </div>
             </div>
-            <div className="mb-4 flex justify-between">
-              <div className="w-1/3 pr-2">
-                <label className="block text-[1.2vw] font-[regular]">
+            <div className="mb-4 flex flex-wrap justify-between">
+              <div className="w-1/3 pr-2 max-[599px]:pr-0 max-[599px]:w-full">
+                <label className="block text-[1.2vw] max-[599px]:text-[3.2vw] font-[regular]">
                   Language
                 </label>
                 <input
@@ -232,10 +235,11 @@ const AdminBook = () => {
                   className="mt-1 block w-full border border-gray-300 rounded p-2"
                   value={language}
                   onChange={(e) => setLanguage(e.target.value)}
+                  placeholder="Enter language"
                 />
               </div>
-              <div className="w-1/3 px-2">
-                <label className="block text-[1.2vw] font-[regular]">
+              <div className="w-1/3 px-2 max-[599px]:px-0 max-[599px]:w-full">
+                <label className="block text-[1.2vw] max-[599px]:text-[3.2vw] font-[regular]">
                   Pages
                 </label>
                 <input
@@ -243,10 +247,11 @@ const AdminBook = () => {
                   className="mt-1 block w-full border border-gray-300 rounded p-2"
                   value={pages}
                   onChange={(e) => setPages(e.target.value)}
+                  placeholder="Enter number of pages"
                 />
               </div>
-              <div className="w-1/3 pl-2">
-                <label className="block text-[1.2vw] font-[regular]">
+              <div className="w-1/3 pl-2 max-[599px]:pl-0 max-[599px]:w-full">
+                <label className="block text-[1.2vw] max-[599px]:text-[3.2vw] font-[regular]">
                   Publisher
                 </label>
                 <input
@@ -254,12 +259,13 @@ const AdminBook = () => {
                   className="mt-1 block w-full border border-gray-300 rounded p-2"
                   value={publisher}
                   onChange={(e) => setPublisher(e.target.value)}
+                  placeholder="Enter publisher's name"
                 />
               </div>
             </div>
-            <div className="mb-4 flex justify-between">
-              <div className="w-1/3 pr-2">
-                <label className="block text-[1.2vw] font-[regular]">
+            <div className="mb-4 flex flex-wrap justify-between">
+              <div className="w-1/3 pr-2 max-[599px]:pr-0 max-[599px]:w-full">
+                <label className="block text-[1.2vw] max-[599px]:text-[3.2vw] font-[regular]">
                   Genre
                 </label>
                 <input
@@ -267,10 +273,11 @@ const AdminBook = () => {
                   className="mt-1 block w-full border border-gray-300 rounded p-2"
                   value={genre}
                   onChange={(e) => setGenre(e.target.value)}
+                  placeholder="Enter genre"
                 />
               </div>
-              <div className="w-1/3 px-2">
-                <label className="block text-[1.2vw] font-[regular]">
+              <div className="w-1/3 px-2 max-[599px]:px-0 max-[599px]:w-full">
+                <label className="block text-[1.2vw] max-[599px]:text-[3.2vw] font-[regular]">
                   ISBN
                 </label>
                 <input
@@ -278,10 +285,11 @@ const AdminBook = () => {
                   className="mt-1 block w-full border border-gray-300 rounded p-2"
                   value={isbn}
                   onChange={(e) => setIsbn(e.target.value)}
+                  placeholder="Enter ISBN number"
                 />
               </div>
-              <div className="w-1/3 pl-2">
-                <label className="block text-[1.2vw] font-[regular]">
+              <div className="w-1/3 pl-2 max-[599px]:pl-0 max-[599px]:w-full">
+                <label className="block text-[1.2vw] max-[599px]:text-[3.2vw] font-[regular]">
                   Available Copies
                 </label>
                 <input
@@ -289,12 +297,13 @@ const AdminBook = () => {
                   className="mt-1 block w-full border border-gray-300 rounded p-2"
                   value={available_copies}
                   onChange={(e) => setAvailable_Copies(e.target.value)}
+                  placeholder="Enter available copies"
                 />
               </div>
             </div>
-            <div className="mb-4 flex justify-between">
-              <div className="w-1/3 pr-2">
-                <label className="block text-[1.2vw] font-[regular]">
+            <div className="mb-4 flex flex-wrap justify-between">
+              <div className="w-1/3 pr-2 max-[599px]:pr-0 max-[599px]:w-full">
+                <label className="block text-[1.2vw] max-[599px]:text-[3.2vw] font-[regular]">
                   Total Copies
                 </label>
                 <input
@@ -302,10 +311,11 @@ const AdminBook = () => {
                   className="mt-1 block w-full border border-gray-300 rounded p-2"
                   value={total_copies}
                   onChange={(e) => setTotal_Copies(e.target.value)}
+                  placeholder="Enter total copies"
                 />
               </div>
-              <div className="w-1/3 px-2">
-                <label className="block text-[1.2vw] font-[regular]">
+              <div className="w-1/3 px-2 max-[599px]:px-0 max-[599px]:w-full">
+                <label className="block text-[1.2vw] max-[599px]:text-[3.2vw] font-[regular]">
                   Category
                 </label>
                 <input
@@ -313,10 +323,11 @@ const AdminBook = () => {
                   className="mt-1 block w-full border border-gray-300 rounded p-2"
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
+                  placeholder="Enter category"
                 />
               </div>
-              <div className="w-1/3 pl-2">
-                <label className="block text-[1.2vw] font-[regular]">
+              <div className="w-1/3 pl-2 max-[599px]:pl-0 max-[599px]:w-full">
+                <label className="block text-[1.2vw] max-[599px]:text-[3.2vw] font-[regular]">
                   Location
                 </label>
                 <input
@@ -324,12 +335,13 @@ const AdminBook = () => {
                   className="mt-1 block w-full border border-gray-300 rounded p-2"
                   value={location}
                   onChange={(e) => setLocation(e.target.value)}
+                  placeholder="Enter location"
                 />
               </div>
             </div>
-            <div className="mb-4 flex justify-between">
-              <div className="w-1/3 pr-2">
-                <label className="block text-[1.2vw] font-[regular]">
+            <div className="mb-4 flex flex-wrap justify-between">
+              <div className="w-1/3 pr-2 max-[599px]:pr-0 max-[599px]:w-full">
+                <label className="block text-[1.2vw] max-[599px]:text-[3.2vw] font-[regular]">
                   Status
                 </label>
                 <input
@@ -337,10 +349,11 @@ const AdminBook = () => {
                   className="mt-1 block w-full border border-gray-300 rounded p-2"
                   value={status}
                   onChange={(e) => setStatus(e.target.value)}
+                  placeholder="Enter status"
                 />
               </div>
-              <div className="w-1/3 px-2">
-                <label className="block text-[1.2vw] font-[regular]">
+              <div className="w-1/3 px-2 max-[599px]:px-0 max-[599px]:w-full">
+                <label className="block text-[1.2vw] max-[599px]:text-[3.2vw] font-[regular]">
                   Description
                 </label>
                 <textarea
@@ -348,10 +361,11 @@ const AdminBook = () => {
                   rows="3"
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
+                  placeholder="Enter description"
                 ></textarea>
               </div>
-              <div className="w-1/3 pl-2">
-                <label className="block text-[1.2vw] font-[regular]">
+              <div className="w-1/3 pl-2 max-[599px]:pl-0 max-[599px]:w-full">
+                <label className="block text-[1.2vw] max-[599px]:text-[3.2vw] font-[regular]">
                   Book Cover URL
                 </label>
                 <input
@@ -359,6 +373,7 @@ const AdminBook = () => {
                   className="mt-1 block w-full border border-gray-300 rounded p-2"
                   value={book_cover_url}
                   onChange={(e) => setBook_Cover_Url(e.target.value)}
+                  placeholder="Enter book cover URL"
                 />
               </div>
             </div>
@@ -373,16 +388,16 @@ const AdminBook = () => {
       </div>
       <div
         ref={showedit}
-        className="absolute h-screen w-[85%] hidden bg-black bg-opacity-50 z-50 p-20"
+        className="absolute min-h-screen w-[85%] max-[599px]:w-full overflow-auto hidden bg-black bg-opacity-50 z-50 p-20 max-[599px]:px-6 max-[599px]:py-20"
       >
-        <div className="bg-white p-6 rounded shadow-lg w-full">
-          <h2 className="text-[2vw] mb-4 text-center font-[semibold]">
+        <div className="bg-white p-6 max-[599px]:p-4 rounded shadow-lg w-full">
+          <h2 className="text-[2vw] max-[599px]:text-[5vw] mb-4 text-center font-[semibold]">
             Edit Book Information
           </h2>
           <form onSubmit={UpdateBookData}>
-            <div className="mb-4 flex justify-between">
-              <div className="w-1/3 pr-2">
-                <label className="block text-[1.2vw] font-[regular]">
+            <div className="mb-4 flex flex-wrap justify-between">
+              <div className="w-1/3 pr-2 max-[599px]:pr-0 max-[599px]:w-full">
+                <label className="block text-[1.2vw] max-[599px]:text-[3.2vw] font-[regular]">
                   Title
                 </label>
                 <input
@@ -390,10 +405,11 @@ const AdminBook = () => {
                   className="mt-1 block w-full border border-gray-300 rounded p-2"
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
+                  placeholder="Enter book title"
                 />
               </div>
-              <div className="w-1/3 px-2">
-                <label className="block text-[1.2vw] font-[regular]">
+              <div className="w-1/3 px-2 max-[599px]:px-0 max-[599px]:w-full">
+                <label className="block text-[1.2vw] max-[599px]:text-[3.2vw] font-[regular]">
                   Author
                 </label>
                 <input
@@ -401,10 +417,11 @@ const AdminBook = () => {
                   className="mt-1 block w-full border border-gray-300 rounded p-2"
                   value={author}
                   onChange={(e) => setAuthor(e.target.value)}
+                  placeholder="Enter author's name"
                 />
               </div>
-              <div className="w-1/3 pl-2">
-                <label className="block text-[1.2vw] font-[regular]">
+              <div className="w-1/3 pl-2 max-[599px]:pl-0 max-[599px]:w-full">
+                <label className="block text-[1.2vw] max-[599px]:text-[3.2vw] font-[regular]">
                   Publication Year
                 </label>
                 <input
@@ -412,12 +429,13 @@ const AdminBook = () => {
                   className="mt-1 block w-full border border-gray-300 rounded p-2"
                   value={publication_year}
                   onChange={(e) => setPublicationYear(e.target.value)}
+                  placeholder="Enter publication year"
                 />
               </div>
             </div>
-            <div className="mb-4 flex justify-between">
-              <div className="w-1/3 pr-2">
-                <label className="block text-[1.2vw] font-[regular]">
+            <div className="mb-4 flex flex-wrap justify-between">
+              <div className="w-1/3 pr-2 max-[599px]:pr-0 max-[599px]:w-full">
+                <label className="block text-[1.2vw] max-[599px]:text-[3.2vw] font-[regular]">
                   Language
                 </label>
                 <input
@@ -425,10 +443,11 @@ const AdminBook = () => {
                   className="mt-1 block w-full border border-gray-300 rounded p-2"
                   value={language}
                   onChange={(e) => setLanguage(e.target.value)}
+                  placeholder="Enter language"
                 />
               </div>
-              <div className="w-1/3 px-2">
-                <label className="block text-[1.2vw] font-[regular]">
+              <div className="w-1/3 px-2 max-[599px]:px-0 max-[599px]:w-full">
+                <label className="block text-[1.2vw] max-[599px]:text-[3.2vw] font-[regular]">
                   Pages
                 </label>
                 <input
@@ -436,10 +455,11 @@ const AdminBook = () => {
                   className="mt-1 block w-full border border-gray-300 rounded p-2"
                   value={pages}
                   onChange={(e) => setPages(e.target.value)}
+                  placeholder="Enter number of pages"
                 />
               </div>
-              <div className="w-1/3 pl-2">
-                <label className="block text-[1.2vw] font-[regular]">
+              <div className="w-1/3 pl-2 max-[599px]:pl-0 max-[599px]:w-full">
+                <label className="block text-[1.2vw] max-[599px]:text-[3.2vw] font-[regular]">
                   Publisher
                 </label>
                 <input
@@ -447,12 +467,13 @@ const AdminBook = () => {
                   className="mt-1 block w-full border border-gray-300 rounded p-2"
                   value={publisher}
                   onChange={(e) => setPublisher(e.target.value)}
+                  placeholder="Enter publisher's name"
                 />
               </div>
             </div>
-            <div className="mb-4 flex justify-between">
-              <div className="w-1/3 pr-2">
-                <label className="block text-[1.2vw] font-[regular]">
+            <div className="mb-4 flex flex-wrap justify-between">
+              <div className="w-1/3 pr-2 max-[599px]:pr-0 max-[599px]:w-full">
+                <label className="block text-[1.2vw] max-[599px]:text-[3.2vw] font-[regular]">
                   Genre
                 </label>
                 <input
@@ -460,10 +481,11 @@ const AdminBook = () => {
                   className="mt-1 block w-full border border-gray-300 rounded p-2"
                   value={genre}
                   onChange={(e) => setGenre(e.target.value)}
+                  placeholder="Enter genre"
                 />
               </div>
-              <div className="w-1/3 px-2">
-                <label className="block text-[1.2vw] font-[regular]">
+              <div className="w-1/3 px-2 max-[599px]:px-0 max-[599px]:w-full">
+                <label className="block text-[1.2vw] max-[599px]:text-[3.2vw] font-[regular]">
                   ISBN
                 </label>
                 <input
@@ -471,10 +493,11 @@ const AdminBook = () => {
                   className="mt-1 block w-full border border-gray-300 rounded p-2"
                   value={isbn}
                   onChange={(e) => setIsbn(e.target.value)}
+                  placeholder="Enter ISBN number"
                 />
               </div>
-              <div className="w-1/3 pl-2">
-                <label className="block text-[1.2vw] font-[regular]">
+              <div className="w-1/3 pl-2 max-[599px]:pl-0 max-[599px]:w-full">
+                <label className="block text-[1.2vw] max-[599px]:text-[3.2vw] font-[regular]">
                   Available Copies
                 </label>
                 <input
@@ -482,12 +505,13 @@ const AdminBook = () => {
                   className="mt-1 block w-full border border-gray-300 rounded p-2"
                   value={available_copies}
                   onChange={(e) => setAvailable_Copies(e.target.value)}
+                  placeholder="Enter available copies"
                 />
               </div>
             </div>
-            <div className="mb-4 flex justify-between">
-              <div className="w-1/3 pr-2">
-                <label className="block text-[1.2vw] font-[regular]">
+            <div className="mb-4 flex flex-wrap justify-between">
+              <div className="w-1/3 pr-2 max-[599px]:pr-0 max-[599px]:w-full">
+                <label className="block text-[1.2vw] max-[599px]:text-[3.2vw] font-[regular]">
                   Total Copies
                 </label>
                 <input
@@ -495,10 +519,11 @@ const AdminBook = () => {
                   className="mt-1 block w-full border border-gray-300 rounded p-2"
                   value={total_copies}
                   onChange={(e) => setTotal_Copies(e.target.value)}
+                  placeholder="Enter total copies"
                 />
               </div>
-              <div className="w-1/3 px-2">
-                <label className="block text-[1.2vw] font-[regular]">
+              <div className="w-1/3 px-2 max-[599px]:px-0 max-[599px]:w-full">
+                <label className="block text-[1.2vw] max-[599px]:text-[3.2vw] font-[regular]">
                   Category
                 </label>
                 <input
@@ -506,10 +531,11 @@ const AdminBook = () => {
                   className="mt-1 block w-full border border-gray-300 rounded p-2"
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
+                  placeholder="Enter category"
                 />
               </div>
-              <div className="w-1/3 pl-2">
-                <label className="block text-[1.2vw] font-[regular]">
+              <div className="w-1/3 pl-2 max-[599px]:pl-0 max-[599px]:w-full">
+                <label className="block text-[1.2vw] max-[599px]:text-[3.2vw] font-[regular]">
                   Location
                 </label>
                 <input
@@ -517,12 +543,13 @@ const AdminBook = () => {
                   className="mt-1 block w-full border border-gray-300 rounded p-2"
                   value={location}
                   onChange={(e) => setLocation(e.target.value)}
+                  placeholder="Enter location"
                 />
               </div>
             </div>
-            <div className="mb-4 flex justify-between">
-              <div className="w-1/3 pr-2">
-                <label className="block text-[1.2vw] font-[regular]">
+            <div className="mb-4 flex flex-wrap justify-between">
+              <div className="w-1/3 pr-2 max-[599px]:pr-0 max-[599px]:w-full">
+                <label className="block text-[1.2vw] max-[599px]:text-[3.2vw] font-[regular]">
                   Status
                 </label>
                 <input
@@ -530,10 +557,11 @@ const AdminBook = () => {
                   className="mt-1 block w-full border border-gray-300 rounded p-2"
                   value={status}
                   onChange={(e) => setStatus(e.target.value)}
+                  placeholder="Enter status"
                 />
               </div>
-              <div className="w-1/3 px-2">
-                <label className="block text-[1.2vw] font-[regular]">
+              <div className="w-1/3 px-2 max-[599px]:px-0 max-[599px]:w-full">
+                <label className="block text-[1.2vw] max-[599px]:text-[3.2vw] font-[regular]">
                   Description
                 </label>
                 <textarea
@@ -541,10 +569,11 @@ const AdminBook = () => {
                   rows="3"
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
+                  placeholder="Enter description"
                 ></textarea>
               </div>
-              <div className="w-1/3 pl-2">
-                <label className="block text-[1.2vw] font-[regular]">
+              <div className="w-1/3 pl-2 max-[599px]:pl-0 max-[599px]:w-full">
+                <label className="block text-[1.2vw] max-[599px]:text-[3.2vw] font-[regular]">
                   Book Cover URL
                 </label>
                 <input
@@ -552,6 +581,7 @@ const AdminBook = () => {
                   className="mt-1 block w-full border border-gray-300 rounded p-2"
                   value={book_cover_url}
                   onChange={(e) => setBook_Cover_Url(e.target.value)}
+                  placeholder="Enter book cover URL"
                 />
               </div>
             </div>
@@ -565,9 +595,9 @@ const AdminBook = () => {
         </div>
       </div>
 
-      <div className="w-full px-10 py-6">
+      <div className="w-full px-10 max-[599px]:px-6 py-6">
         <div className="flex items-center justify-between py-4">
-          <h1 className="text-white text-[2vw] font-[semibold]">All Books</h1>
+          <h1 className="text-white text-[2vw] max-[599px]:text-[5vw] font-[semibold]">All Books</h1>
           <button
             className="bg-[#5046E5] font-[semibold] text-white px-4 py-2 rounded"
             onClick={showCard}
@@ -578,29 +608,29 @@ const AdminBook = () => {
         <table className="min-w-full bg-gray-800 text-white text-center rounded-md overflow-hidden">
           <thead>
             <tr className="bg-[#3730A2] font-[semibold]">
-              <th className="py-2 text-[1.2vw]">Book Id</th>
-              <th className="py-2 text-[1.2vw]">Book Name</th>
-              <th className="py-2 text-[1.2vw]">ISBN no</th>
-              <th className="py-2 text-[1.2vw]">Total Copies</th>
-              <th className="py-2 text-[1.2vw]">Actions</th>
+              <th className="py-2 text-[1.2vw] max-[599px]:text-[3.2vw]">Book Id</th>
+              <th className="py-2 text-[1.2vw] max-[599px]:text-[3.2vw]">Book Name</th>
+              <th className="py-2 text-[1.2vw] max-[599px]:text-[3.2vw]">ISBN no</th>
+              <th className="py-2 text-[1.2vw] max-[599px]:text-[3.2vw]">Total Copies</th>
+              <th className="py-2 text-[1.2vw] max-[599px]:text-[3.2vw]">Actions</th>
             </tr>
           </thead>
           <tbody>
             {data.map((book, index) => (
               <tr key={index} className="font-[regular]">
-                <td className="py-2 text-[1vw]">{book.id}</td>
-                <td className="py-2 text-[1vw]">{book.title}</td>
-                <td className="py-2 text-[1vw]">{book.isbn}</td>
-                <td className="py-2 text-[1vw]">{book.total_copies}</td>
-                <td className="py-2">
+                <td className="py-2 max-[599px]:py-1 text-[1vw] max-[599px]:text-[2vw]">{book.id}</td>
+                <td className="py-2 max-[599px]:py-1 text-[1vw] max-[599px]:text-[2vw]">{book.title}</td>
+                <td className="py-2 max-[599px]:py-1 text-[1vw] max-[599px]:text-[2vw]">{book.isbn}</td>
+                <td className="py-2 max-[599px]:py-1 text-[1vw] max-[599px]:text-[2vw]">{book.total_copies}</td>
+                <td className="py-2 max-[599px]:py-1">
                   <button
-                    className="bg-[#5046E5] text-white px-2 py-1 rounded"
+                    className="bg-[#5046E5] text-white px-2 max-[599px]:px-1 py-1 rounded"
                     onClick={()=>handleEdit(book.id,book.title)}
                   >
                     <CiEdit />
                   </button>
                   <button
-                    className="bg-red-500 text-white px-2 py-1 rounded ml-4"
+                    className="bg-red-500 text-white px-2 max-[599px]:px-1 py-1 rounded ml-4 max-[599px]:ml-2"
                     onClick={() => handleDelete(book.id)}
                   >
                     <MdDelete />

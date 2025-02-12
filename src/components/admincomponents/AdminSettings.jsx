@@ -2,7 +2,7 @@ import React from 'react'
 
 const AdminSettings = () => {
   return (
-    <section className='w-full min-h-screen bg-[#111828] pl-[15%] flex items-center justify-center'>
+    <section className='w-full min-h-screen bg-[#111828] pl-[15%] max-[599px]:pl-6 max-[599px]:px-6 flex items-center justify-center'>
       <div className="backdrop-blur-lg bg-white/10 border border-white/20 p-10 rounded-2xl shadow-lg max-w-2xl text-center text-white">
         <h1 className="text-4xl font-extrabold drop-shadow-md">Settings</h1>
         <p className="text-lg text-gray-300 mt-4">
