@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link, useNavigate } from "react-router-dom";
+import { setUserIdToLocalStorage, setUserStatusToLocalStorage, getUserStatusFromLocalStorage } from "../Redux/User";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -9,8 +10,13 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    window.localStorage.setItem("userId", "7966");
-    navigate("/user/dashboard");
+    const id = "7dd3";
+    setUserIdToLocalStorage(id);
+    setUserStatusToLocalStorage("true");
+    window.setTimeout(() => {
+      const isAdmin = getUserStatusFromLocalStorage();
+      isAdmin === "true" ? navigate("/admin/dashboard") : navigate("/user/dashboard");
+    }, 500)
   };
 
   return (

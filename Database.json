@@ -177,7 +177,7 @@
       "username": "param",
       "email": "parmjeetdell1@gmail.com",
       "password": "12345",
-      "isAdmin": false,
+      "isAdmin": true,
       "books": [
         4,
         2,
