@@ -31,7 +31,7 @@ const Technology = () => {
                     />
                   </div>
                 </Link>
-                <div className="p-4 w-full h-[8vw] max-[599px]:h-[20vw]">
+                <div className="p-4 w-full h-[10vw] max-[599px]:h-[20vw]">
                   <h2 className="text-[1.3vw] max-[599px]:text-[3.3vw] font-[semibold]">
                     {book.title || "Untitled"}
                   </h2>{" "}

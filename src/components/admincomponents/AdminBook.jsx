@@ -575,7 +575,7 @@ const AdminBook = () => {
             Add New Book
           </button>
         </div>
-        <table className="min-w-full bg-gray-800 text-white text-center">
+        <table className="min-w-full bg-gray-800 text-white text-center rounded-md overflow-hidden">
           <thead>
             <tr className="bg-[#3730A2] font-[semibold]">
               <th className="py-2 text-[1.2vw]">Book Id</th>

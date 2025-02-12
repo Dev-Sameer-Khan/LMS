@@ -1,7 +1,17 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 const AdminNav = () => {
+
+  let navigate = useNavigate()
+
+  const handleLogout = () => {
+    const isConfirmed = window.confirm("Are you sure you want to logout?");
+    if (isConfirmed) {
+    window.localStorage.removeItem("userId");
+    navigate("/");
+  }};
+
   return (
     <nav className='min-h-screen fixed top-0 left-0 w-[15%] bg-[#202938] text-white flex flex-col'>
       <div className="text text-white font-bold py-4 text-center">
@@ -20,9 +30,12 @@ const AdminNav = () => {
         <NavLink to='/admin/settings' className={({ isActive }) =>
             isActive ? "bg-[#3730A2] p-2" : "p-2"
           }>Settings</NavLink>
-        <NavLink to='/logout' className={({ isActive }) =>
-            isActive ? "bg-[#3730A2] p-2" : "p-2"
-          }>Logout</NavLink>
+        <NavLink 
+            
+          className="p-2"
+          onClick={handleLogout}
+          >
+            Logout</NavLink>
       </div>
     </nav>
   )

@@ -40,8 +40,31 @@ export const userApi = createApi({
       }),
       invalidatesTags: ["user"],
     }),
+    updateUser: builder.mutation({
+      query: ({ id, data }) => ({
+        url: `users/${id}`,
+        method: "PATCH",
+        body: data,
+      }),
+      invalidatesTags: ["user"],
+    }),
+    updateUserById: builder.mutation({
+      query: ({ id, data }) => ({
+        url: `users/${id}`,
+        method: "PATCH",
+        body: data,
+      }),
+      invalidatesTags: ["user"],
+    }),
+    deleteUser: builder.mutation({
+      query: (id) => ({
+        url: `users/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["user"],
+    }),
   }),
 });
 
-export const { useGetUserQuery, useNewUserMutation, useGetUserByIdQuery, useUpdateUserBookMutation } =
+export const { useGetUserQuery, useNewUserMutation, useGetUserByIdQuery, useUpdateUserBookMutation, useUpdateUserMutation ,useUpdateUserByIdMutation,useDeleteUserMutation } =
   userApi;

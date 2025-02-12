@@ -16,6 +16,8 @@ import AdminDashboard from "../components/admincomponents/AdminDashboard";
 import AdminBook from "../components/admincomponents/AdminBook";
 import AdminHome from "../components/admincomponents/AdminHome";
 import UserHome from "../components/usercomponents/UserHome";
+import AdminUser from "../components/admincomponents/AdminUser";
+import AdminSettings from "../components/admincomponents/AdminSettings";
 
 const Router = createBrowserRouter([
   {
@@ -89,10 +91,14 @@ const Router = createBrowserRouter([
        path: "/admin/book",
         element: <AdminBook />,
       },
-     //{
-    //     path: "/admin/user",
-    //     element: <UserBook />,
-    //   },
+     {
+        path: "/admin/user",
+        element: <AdminUser />,
+      },
+     {
+        path: "/admin/settings",
+        element: <AdminSettings />,
+      },
      ],
   },
 ]);
