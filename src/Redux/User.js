@@ -3,6 +3,12 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const setUserIdToLocalStorage = (id) => {
   window.localStorage.setItem("userId", JSON.stringify(id));
 }
+
+export const getUserIdFromLocalStorage = () => {
+  const userId = JSON.parse(window.localStorage.getItem("userId"))
+  return userId
+}
+
 export const setUserStatusToLocalStorage = (status) => {
   window.localStorage.setItem("isAdmin", status);
 }
