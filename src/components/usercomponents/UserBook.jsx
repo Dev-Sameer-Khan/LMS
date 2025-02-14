@@ -1,18 +1,22 @@
-import React from "react";
+
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { useGetBooksQuery } from "../../Redux/Books";
-import { useGetUserByIdQuery } from "../../Redux/User";
+import { getUserIdFromLocalStorage, useGetUserByIdQuery } from "../../Redux/User";
 
 const UserBook = () => {
-  const userid = localStorage.getItem("userId");
+  const userid = getUserIdFromLocalStorage()
 
-  const { data: bookdata = [] } = useGetBooksQuery();
-  const { data } = useGetUserByIdQuery(userid);
+  const { data: bookdata, isLoading: isBookLoading } = useGetBooksQuery();
+  const { data: userData, isLoading: isUserLoading } = useGetUserByIdQuery(userid);
 
- let userbook = bookdata.filter((val)=>{
-  return data?.book == val.id
- })
+
+  let userbook = isUserLoading ? [] : userData.books.map((value) => {
+    return isBookLoading ? [] : bookdata.filter((val) => {
+      return value == val.id
+    })
+  })
+
   return (
     <section className="w-full pt-20 py-16 px-12">
       <Helmet>
@@ -38,7 +42,7 @@ const UserBook = () => {
         </p>
       </div>
       <div className="cards w-full flex items-center justify-center gap-16 flex-wrap flex-grow">
-        {userbook.map((value, index) => (
+        { isBookLoading? "Loading..." : userbook.length === 0 ? "Rent Some Books first..." : userbook.map((value, index) => (
           <div
             key={index}
             className="card-1 w-[20%] bg-white shadow-lg rounded-lg overflow-hidden hover:scale-95 transition-all"

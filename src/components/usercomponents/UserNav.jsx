@@ -9,6 +9,7 @@ const UserNav = () => {
     const isConfirmed = window.confirm("Are you sure you want to logout?");
     if (isConfirmed) {
     window.localStorage.removeItem("userId");
+    window.localStorage.removeItem("isAdmin");
     navigate("/");
   }};
 

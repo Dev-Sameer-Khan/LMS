@@ -10,8 +10,11 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const id = "7dd3";
+    // This Id is Constant , make it dynamic when api called with backend
+    const id = "3b8d";
     setUserIdToLocalStorage(id);
+
+    // Here isAdmin is storing manually, make it dynamic on api call response
     setUserStatusToLocalStorage("true");
     window.setTimeout(() => {
       const isAdmin = getUserStatusFromLocalStorage();
