@@ -10,12 +10,12 @@ const Dashboard = () => {
   const { data } = useGetUserByIdQuery(userid);
 
  let userbook = bookdata.filter((val)=>{
-  return data?.book == val.id
+  return data?.books == val.id
  })
 
 
   return (
-    <section className="w-full pt-20 px-12">
+    <section className="w-full min-h-screen pt-20 px-12">
       <div className="txt text-center">
         <h1 className="font-[semibold] text-[2.5vw]">
           Welcome to Your Dashboard
@@ -62,38 +62,21 @@ const Dashboard = () => {
           </button>
         </div>
       </div>
-      <div className="cards my-10 w-full flex items-center justify-center gap-16 flex-wrap flex-grow">
-        {userbook.map((value, index) => (
-          <div
-            key={index}
-            className="card-1 w-[20%] bg-white shadow-lg rounded-lg overflow-hidden hover:scale-95 transition-all"
-          >
-            <Link to="/book">
-              <div className="w-[20vw] h-[25vw] overflow-hidden">
-                <img
-                  src={value.book_cover_url}
-                  alt={value.title || "Book Cover"} // Use a dynamic alt text
-                  className="w-full h-full object-cover pointer-events-none"
-                />
-              </div>
-            </Link>
-            <div className="p-4 w-full h-[8vw]">
-              <h2 className="text-[1.3vw] font-[semibold]">
-                {value.title || "Untitled"}
-              </h2>{" "}
-              {/* Use dynamic title */}
-              <p className="text-gray-600 text-[1vw] font-[regular]">
-                {value.author || "Unknown Author"}
-              </p>{" "}
-              {/* Use dynamic author */}
-              <p className="text-gray-500 text-[1vw] font-[regular]">
-                {value.genre || "Genre"}
-              </p>{" "}
-              {/* Use dynamic genre */}
-            </div>
-          </div>
-        ))}
+      <div className='w-full py-10 flex items-center justify-center'>
+      <div className="bg-white border border-gray-200 p-10 rounded-2xl shadow-lg max-w-2xl text-center">
+        <h1 className="text-4xl font-extrabold text-gray-800">Your Library Activity</h1>
+        <p className="text-lg text-gray-600 mt-4">
+          View your borrowed books, due dates, and manage your reading journey all in one place.
+        </p>
+        <div className="mt-6">
+          <Link to="/user/book">
+            <button className="bg-orange-600 text-white px-6 py-3 rounded-lg text-lg font-semibold shadow-md hover:bg-orange-500 transition">
+              Browse Books
+            </button>
+          </Link>
+        </div>
       </div>
+    </div>
     </section>
   );
 };

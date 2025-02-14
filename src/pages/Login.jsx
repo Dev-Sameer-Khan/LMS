@@ -10,8 +10,11 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const id = "7dd3";
+    // This Id is Constant , make it dynamic when api called with backend
+    const id = "7966";
     setUserIdToLocalStorage(id);
+
+    // Here isAdmin is storing manually, make it dynamic on api call response
     setUserStatusToLocalStorage("true");
     window.setTimeout(() => {
       const isAdmin = getUserStatusFromLocalStorage();
@@ -53,6 +56,7 @@ const Login = () => {
             className="my-2 p-2 outline-0 font-[regular] text-[1.1vw] max-[599px]:text-[3vw] border-2 border-gray-300 rounded-lg w-full"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            required
           />
 
           <label
@@ -68,6 +72,7 @@ const Login = () => {
             className="my-2 p-2 outline-0 font-[regular] text-[1.1vw] max-[599px]:text-[3vw] border-2 border-gray-300 rounded-lg w-full"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
           />
           <button
             type="submit"

@@ -18,6 +18,7 @@ import AdminHome from "../components/admincomponents/AdminHome";
 import UserHome from "../components/usercomponents/UserHome";
 import AdminUser from "../components/admincomponents/AdminUser";
 import AdminSettings from "../components/admincomponents/AdminSettings";
+import BooksPreview from "../pages/BooksPreview";
 
 const Router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const Router = createBrowserRouter([
       {
         path: "/book",
         element: <Book />,
+      },
+      {
+        path: "/books/:id",
+        element: <BooksPreview />,
       },
       {
         path: "/login",

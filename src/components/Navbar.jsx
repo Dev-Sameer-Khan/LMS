@@ -33,9 +33,9 @@ const Navbar = () => {
         </NavLink>
 
         {isOpen ? (
-          <IoMdCloseCircle size={35} onClick={toggleNav} className="max-[599px]:block hidden" />
+          <IoMdCloseCircle size={35} onClick={window.innerWidth === "599px" && toggleNav} className="max-[599px]:block hidden" />
         ) : (
-          <TiThMenuOutline size={30} onClick={toggleNav} className="max-[599px]:block hidden" />
+          <TiThMenuOutline size={30} onClick={window.innerWidth === "599px" && toggleNav} className="max-[599px]:block hidden" />
         )}
 
         <div className="links flex items-center justify-between gap-20 max-[599px]:hidden">

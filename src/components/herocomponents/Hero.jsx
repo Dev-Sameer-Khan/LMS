@@ -1,8 +1,55 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import banner from "../../assets/images/home-banner.jpeg";
 import { CiSearch } from "react-icons/ci";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  const [books, setBooks] = useState([]); // Stores all books
+  const [searchResults, setSearchResults] = useState([]); // Stores filtered results
+  const [searchQuery, setSearchQuery] = useState(""); // Stores input value
+  const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
+
+  // Fetch books from API
+  const fetchBooks = async () => {
+    try {
+      setLoading(true);
+      const response = await fetch('http://localhost:3000/books');
+      const data = await response.json();
+      setBooks(data); // Store all books
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching books:", error);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchBooks();
+  }, []);
+
+  // Handle Search Input Change
+  const handleSearchChange = (e) => {
+    const query = e.target.value.toLowerCase();
+    setSearchQuery(query);
+    if (query) {
+      const filteredResults = books.filter((book) =>
+        book.title.toLowerCase().includes(query) ||
+        book.author.toLowerCase().includes(query) ||
+        book.genre.toLowerCase().includes(query)
+      );
+      setSearchResults(filteredResults);
+    } else {
+      setSearchResults([]);
+    }
+  };
+
+  const handleBookClick = (bookId,bookName) => {
+    localStorage.setItem("bookId" , bookId)
+    navigate(`/books/${bookName}`);
+  };
+
   return (
     <section className="w-full h-screen bg-black relative flex items-center justify-center">
       <img
@@ -24,10 +71,26 @@ const Hero = () => {
             <CiSearch size={26} />
             <input
               type="text"
+              value={searchQuery}
+              onChange={handleSearchChange}
               placeholder="Search for books, authors, or genres..."
               className="w-full text-[1.2vw] max-[599px]:text-[3.2vw] outline-0 font-[regular] placeholder:text-gray-500 bg-transparent"
             />
           </div>
+          {searchQuery && searchResults.length > 0 && (
+            <ul className='absolute top-16 left-6 right-6 bg-[#282828] text-white rounded shadow-md max-h-[30vh] overflow-y-auto z-10'>
+              {searchResults.map((book) => (
+                <li 
+                  key={book.id}
+                  className='px-4 py-2 hover:bg-[#464646] cursor-pointer text-left text-[1vw] max-[599px]:text-[3vw]'
+                  onClick={() => handleBookClick(book.id, book.title)}
+                >
+                  <div className="font-bold">{book.title}</div>
+                  <div className="text-gray-400 text-sm">by {book.author}</div>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </div>
     </section>
