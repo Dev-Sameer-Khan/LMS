@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useGetcategoriesQuery } from "../../Redux/Categories";
 
 const ThisMonth = () => {
@@ -9,6 +9,14 @@ const ThisMonth = () => {
   const topPick =
     data.find((category) => category.title === "Top Picks for This Month")
       ?.books || [];
+
+      const navigate = useNavigate();
+
+  const handleBookClick = (bookId,bookName) => {
+    localStorage.setItem("bookId" , bookId)
+    navigate(`/books/${bookName}`);
+  };
+
   return (
     <section className="w-full py-10 max-[599px]:py-5 px-12 max-[599px]:px-6">
       <div className="text font-[semibold] text-[1.7vw] max-[599px]:text-[3.7vw] mb-12">
@@ -19,6 +27,7 @@ const ThisMonth = () => {
           {topPick.length > 0 ? (
             topPick.map((book, index) => (
               <div
+              onClick={()=> handleBookClick(book.id , book.title)}
                 key={index}
                 className="card-1 w-[20%] max-[599px]:w-[40%] bg-white shadow-lg rounded-lg overflow-hidden hover:scale-95 transition-all"
               >

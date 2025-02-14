@@ -605,41 +605,43 @@ const AdminBook = () => {
             Add New Book
           </button>
         </div>
-        <table className="min-w-full bg-gray-800 text-white text-center rounded-md overflow-hidden">
-          <thead>
-            <tr className="bg-[#3730A2] font-[semibold]">
-              <th className="py-2 text-[1.2vw] max-[599px]:text-[3.2vw]">Book Id</th>
-              <th className="py-2 text-[1.2vw] max-[599px]:text-[3.2vw]">Book Name</th>
-              <th className="py-2 text-[1.2vw] max-[599px]:text-[3.2vw]">ISBN no</th>
-              <th className="py-2 text-[1.2vw] max-[599px]:text-[3.2vw]">Total Copies</th>
-              <th className="py-2 text-[1.2vw] max-[599px]:text-[3.2vw]">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((book, index) => (
-              <tr key={index} className="font-[regular]">
-                <td className="py-2 max-[599px]:py-1 text-[1vw] max-[599px]:text-[2vw]">{book.id}</td>
-                <td className="py-2 max-[599px]:py-1 text-[1vw] max-[599px]:text-[2vw]">{book.title}</td>
-                <td className="py-2 max-[599px]:py-1 text-[1vw] max-[599px]:text-[2vw]">{book.isbn}</td>
-                <td className="py-2 max-[599px]:py-1 text-[1vw] max-[599px]:text-[2vw]">{book.total_copies}</td>
-                <td className="py-2 max-[599px]:py-1">
-                  <button
-                    className="bg-[#5046E5] text-white px-2 max-[599px]:px-1 py-1 rounded"
-                    onClick={()=>handleEdit(book.id,book.title)}
-                  >
-                    <CiEdit />
-                  </button>
-                  <button
-                    className="bg-red-500 text-white px-2 max-[599px]:px-1 py-1 rounded ml-4 max-[599px]:ml-2"
-                    onClick={() => handleDelete(book.id)}
-                  >
-                    <MdDelete />
-                  </button>
-                </td>
+        <div className="overflow-x-auto">
+          <table className="min-w-full bg-gray-800 text-white text-center rounded-md overflow-hidden">
+            <thead>
+              <tr className="bg-[#3730A2] font-[semibold]">
+                <th className="py-2 text-[1.2vw] max-[599px]:text-[3.2vw]">Book Id</th>
+                <th className="py-2 text-[1.2vw] max-[599px]:text-[3.2vw]">Book Name</th>
+                <th className="py-2 text-[1.2vw] max-[599px]:text-[3.2vw]">ISBN no</th>
+                <th className="py-2 text-[1.2vw] max-[599px]:text-[3.2vw]">Total Copies</th>
+                <th className="py-2 text-[1.2vw] max-[599px]:text-[3.2vw]">Actions</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {data.map((book, index) => (
+                <tr key={index} className="font-[regular]">
+                  <td className="py-2 max-[599px]:py-1 text-[1vw] max-[599px]:text-[2vw]">{book.id}</td>
+                  <td className="py-2 max-[599px]:py-1 text-[1vw] max-[599px]:text-[2vw] max-[599px]:w-[30%]">{book.title}</td>
+                  <td className="py-2 max-[599px]:py-1 text-[1vw] max-[599px]:text-[2vw]">{book.isbn}</td>
+                  <td className="py-2 max-[599px]:py-1 text-[1vw] max-[599px]:text-[2vw]">{book.total_copies}</td>
+                  <td className="py-2 max-[599px]:py-1">
+                    <button
+                      className="bg-[#5046E5] text-white px-2 max-[599px]:px-1 py-1 rounded"
+                      onClick={()=>handleEdit(book.id,book.title)}
+                    >
+                      <CiEdit />
+                    </button>
+                    <button
+                      className="bg-red-500 text-white px-2 max-[599px]:px-1 py-1 rounded ml-4 max-[599px]:ml-2"
+                      onClick={() => handleDelete(book.id)}
+                    >
+                      <MdDelete />
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
   );

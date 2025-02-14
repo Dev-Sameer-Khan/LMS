@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useGetcategoriesQuery } from "../../Redux/Categories";
 
 const Technology = () => {
@@ -8,6 +8,13 @@ const Technology = () => {
   // Check if data is available and has the expected structure
   const Technology =
     data.find((category) => category.title === "Technology")?.books || [];
+
+    const navigate = useNavigate();
+
+  const handleBookClick = (bookId,bookName) => {
+    localStorage.setItem("bookId" , bookId)
+    navigate(`/books/${bookName}`);
+  };
 
   return (
     <section className="w-full py-10 max-[599px]:py-5 px-12 max-[599px]:px-6">
@@ -19,10 +26,10 @@ const Technology = () => {
           {Technology.length > 0 ? (
             Technology.map((book, index) => (
               <div
+              onClick={()=> handleBookClick(book.id, book.title)}
                 key={index}
                 className="card-1 w-[20%] max-[599px]:w-[40%] bg-white shadow-lg rounded-lg overflow-hidden hover:scale-95 transition-all"
               >
-                <Link to="/book">
                   <div className="w-[20vw] max-[599px]:w-[45vw] h-[25vw] max-[599px]:h-[55vw] overflow-hidden">
                     <img
                       src={book.thumbnail}
@@ -30,7 +37,6 @@ const Technology = () => {
                       className="w-full h-full object-cover pointer-events-none"
                     />
                   </div>
-                </Link>
                 <div className="p-4 w-full h-[10vw] max-[599px]:h-[20vw]">
                   <h2 className="text-[1.3vw] max-[599px]:text-[3.3vw] font-[semibold]">
                     {book.title || "Untitled"}
