@@ -17,7 +17,7 @@ const BooksPreview = () => {
 
   const handleBookPurchase = async (bookId,name) => {
     const isConfirmed = window.confirm(
-      `Are you sure you want to purchase this book ${bookId}?`
+      `Are you sure you want to purchase this book ${name}?`
     );
     if (isConfirmed) {
       try {
