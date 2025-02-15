@@ -19,6 +19,7 @@ import UserHome from "../components/usercomponents/UserHome";
 import AdminUser from "../components/admincomponents/AdminUser";
 import AdminSettings from "../components/admincomponents/AdminSettings";
 import BooksPreview from "../pages/BooksPreview";
+import UserProfile from "../components/usercomponents/UserProfile";
 
 const Router = createBrowserRouter([
   {
@@ -75,7 +76,7 @@ const Router = createBrowserRouter([
       },
       {
         path: "/user/profile",
-        element: <UserBook />,
+        element: <UserProfile />,
       },
     ],
   },

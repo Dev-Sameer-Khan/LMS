@@ -1,17 +1,39 @@
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useGetBooksQuery } from "../../Redux/Books";
-import { getUserIdFromLocalStorage, useGetUserByIdQuery } from "../../Redux/User";
+import { getUserIdFromLocalStorage, useGetUserByIdQuery, useUpdateUserBookMutation } from "../../Redux/User";
 
 const UserBook = () => {
   const userid = getUserIdFromLocalStorage()
-
   const { data: bookdata = [], isLoading: isBookLoading } = useGetBooksQuery();
   const { data: userData = {books: []}, isLoading: isUserLoading } = useGetUserByIdQuery(userid);
+  const [updateUserBook] = useUpdateUserBookMutation();
 
   const userbook = userData.books?.map((bookId) => {
     return bookdata.find((book) => book.id === bookId);
   }).filter(Boolean);
+
+  let navigate = useNavigate()
+
+  const handleBookClick = (bookId, bookName) => {
+    localStorage.setItem("bookId", bookId);
+    navigate(`/books/${bookName}`);
+  };
+
+  const handleDeleteBook = async (bookId) => {
+    const isConfirmed = window.confirm("Are you sure you want to delete this book?");
+    if (isConfirmed) {
+      try {
+        const updatedBooks = userData.books.filter(id => id !== bookId);
+        await updateUserBook({
+          id: userid,
+          data: { books: updatedBooks }
+        });
+      } catch (error) {
+        console.error("Error deleting book:", error);
+      }
+    }
+  };
 
   return (
     <section className="w-full pt-20 py-16 px-12">
@@ -48,7 +70,6 @@ const UserBook = () => {
               key={index}
               className="card-1 w-[20%] bg-white shadow-lg rounded-lg overflow-hidden hover:scale-95 transition-all"
             >
-              <Link to="/book">
                 <div className="w-[20vw] h-[25vw] overflow-hidden">
                   <img
                     src={value.book_cover_url}
@@ -56,8 +77,7 @@ const UserBook = () => {
                     className="w-full h-full object-cover pointer-events-none"
                   />
                 </div>
-              </Link>
-              <div className="p-4 w-full h-[8vw]">
+              <div className="p-4 w-full h-[12vw]">
                 <h2 className="text-[1.3vw] font-[semibold]">
                   {value.title || "Untitled"}
                 </h2>{" "}
@@ -72,9 +92,16 @@ const UserBook = () => {
                 {/* Use dynamic genre */}
               </div>
               <button
+                onClick={()=> handleBookClick(value.id, value.title)}
                 className="m-4 py-2 px-4 bg-orange-600 text-gray-100 rounded-md"
               >
                 Read Now
+              </button>
+              <button
+                onClick={() => handleDeleteBook(value.id)}
+                className="mx-4 mb-4 py-2 px-4 bg-red-600 text-gray-100 rounded-md"
+              >
+                Delete Book
               </button>
             </div>
           ))
